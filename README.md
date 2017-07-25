@@ -1,2 +1,2 @@
 # LD39
-Ludum Dare 38 Compo
+Ludum Dare 39 Compo
