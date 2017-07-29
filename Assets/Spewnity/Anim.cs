@@ -31,7 +31,7 @@ using UnityEditorInternal;
 namespace Spewnity
 {
     [ExecuteInEditMode]
-    public class Anim : MonoBehaviour
+    public class  Anim : MonoBehaviour
     {
         public bool livePreview;
         public string sequenceName;
