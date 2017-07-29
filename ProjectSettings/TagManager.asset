@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - damage
+  - solid
   layers:
   - Default
   - TransparentFX
@@ -38,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Back
+    uniqueID: 2751010325
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Near
+    uniqueID: 2321611537
+    locked: 0
+  - name: Middle
+    uniqueID: 3726227685
+    locked: 0
+  - name: Near Cam
+    uniqueID: 2624624891
     locked: 0

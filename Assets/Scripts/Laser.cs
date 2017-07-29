@@ -16,4 +16,11 @@ public class Laser : MonoBehaviour
         rb.AddRelativeForce(new Vector2(0, 1f));
 		Destroy(this.gameObject, 1.0f);
     }
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		Health health = other.gameObject.GetComponent<Health>();
+		if(health != null)
+			Destroy(this.gameObject);
+	}
 }

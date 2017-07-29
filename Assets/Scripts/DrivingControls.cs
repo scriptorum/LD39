@@ -9,21 +9,25 @@ public class DrivingControls : MonoBehaviour
 	public RoverMoveEvent roverMove;
 
 	private const float TURN_SPEED = 5f;
+	private const float KNOCKBACK = 0.5f;
 	private float speed = 8f;
 	private float curAngleDeg = 0f;
+	private Vector2 lastMove;
+	private float stunTimer = 0f;
 
     void FixedUpdate()
     {
-		Vector2 input = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
 
-		if(input.x == 0f && input.y == 0f)
+		lastMove = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
+
+		if(lastMove.x == 0f && lastMove.y == 0f)
 		{
 			roverMove.Invoke(0f);
 			return;
 		}
 
 		// Determine desired angle of rover
-		float z = Mathf.Atan2(input.x, -input.y);
+		float z = Mathf.Atan2(lastMove.x, -lastMove.y);
 		float zDeg = z * Mathf.Rad2Deg;
 
 		float tireAngle = Mathf.DeltaAngle(zDeg, curAngleDeg);
@@ -34,18 +38,42 @@ public class DrivingControls : MonoBehaviour
 		z = zDeg * Mathf.Deg2Rad;
 
 		// Recalculate input
-		float magnitude = input.magnitude;
-		input.x = Mathf.Sin(z) * -magnitude;
-		input.y = Mathf.Cos(z) * magnitude;
+		float magnitude = lastMove.magnitude;
+		lastMove.x = Mathf.Sin(z) * -magnitude;
+		lastMove.y = Mathf.Cos(z) * magnitude;
 
 		// Aim rover
 		transform.eulerAngles = new Vector3(0f, 0f, zDeg);
 		curAngleDeg = zDeg;		
 
 		// Move rover
-		transform.Translate(input.x * Time.deltaTime * speed, input.y * Time.deltaTime * speed, 0, Space.World);
-		roverMove.Invoke(magnitude);		
+		if(stunTimer <= 0f)
+		{
+			transform.Translate(lastMove.x * Time.deltaTime * speed, lastMove.y * Time.deltaTime * speed, 0, Space.World);
+			roverMove.Invoke(magnitude);		
+		}
+		else stunTimer -= Time.deltaTime;
     }
+
+
+	public void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("Trigger");
+		if(other.tag == "solid")
+		{
+			lastMove.Normalize();
+			transform.Translate(lastMove.x * -KNOCKBACK, lastMove.y * -KNOCKBACK, 0, Space.World);
+			stunTimer = 0.5f;
+		}
+
+		Pickup pickup = other.GetComponent<Pickup>();
+		if(pickup != null)
+		{
+			Debug.Log("Picked up:" + pickup.type);
+			GameObject.Destroy(pickup.gameObject);
+		}
+	}
+	
 }
 
 [System.Serializable]
