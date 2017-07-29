@@ -35,7 +35,7 @@ public class TireControls : MonoBehaviour
 
 	public void onRoverMove(float speed)
 	{
-		if(speed <= 0.2f)
+		if(speed <= 0.01f)
 		{
 			if(!anim.paused)
 			{
