@@ -1,24 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DrivingControls : MonoBehaviour
 {
+	public RoverRotateEvent roverRotate;
+	public RoverMoveEvent roverMove;
+
+	private const float TURN_SPEED = 5f;
 	private float speed = 8f;
+	private float curAngleDeg = 0f;
 
-    void Update()
+    void FixedUpdate()
     {
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
+		Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-		if(h == 0f && v == 0f)
+		if(input.x == 0f && input.y == 0f)
+		{
+			roverMove.Invoke(0f);
 			return;
+		}
+
+		// Determine desired angle of rover
+		float z = Mathf.Atan2(input.x, -input.y);
+		float zDeg = z * Mathf.Rad2Deg;
+
+		float tireAngle = Mathf.DeltaAngle(zDeg, curAngleDeg);
+		Debug.Log("zDeg:" + zDeg + " curAngleDeg:" + curAngleDeg);
+		roverRotate.Invoke(tireAngle);
+
+		// Restrict angle by turning speed
+		zDeg = Mathf.LerpAngle(curAngleDeg, zDeg, Time.deltaTime * TURN_SPEED);
+		z = zDeg * Mathf.Deg2Rad;
+
+		// Recalculate input
+		float magnitude = input.magnitude;
+		input.x = Mathf.Sin(z) * magnitude;
+		input.y = Mathf.Cos(z) * -magnitude;
 
 		// Aim rover
-		float z = Mathf.Atan2(h, -v) * Mathf.Rad2Deg - 180f;
-		transform.eulerAngles = new Vector3(0f, 0f, z);
+		transform.eulerAngles = new Vector3(0f, 0f, zDeg);
+		curAngleDeg = zDeg;		
 
 		// Move rover
-		transform.Translate(h * Time.deltaTime * speed, v * Time.deltaTime * speed, 0, Space.World);
+		transform.Translate(input.x * Time.deltaTime * speed, input.y * Time.deltaTime * speed, 0, Space.World);
+		roverMove.Invoke(magnitude);		
     }
+}
+
+[System.Serializable]
+public class RoverRotateEvent : UnityEvent<float> // angleDeg
+{
+}
+
+[System.Serializable]
+public class RoverMoveEvent : UnityEvent<float> // speed
+{
 }
