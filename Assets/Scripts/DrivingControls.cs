@@ -7,6 +7,7 @@ public class DrivingControls : MonoBehaviour
 {
 	public RoverRotateEvent roverRotate;
 	public RoverMoveEvent roverMove;
+	public PickupEvent roverPickup;
 
 	private const float TURN_SPEED = 5f;
 	private const float KNOCKBACK = 0.5f;
@@ -69,7 +70,7 @@ public class DrivingControls : MonoBehaviour
 		Pickup pickup = other.GetComponent<Pickup>();
 		if(pickup != null)
 		{
-			Debug.Log("Picked up:" + pickup.type);
+			roverPickup.Invoke(pickup);
 			GameObject.Destroy(pickup.gameObject);
 		}
 	}
@@ -83,5 +84,10 @@ public class RoverRotateEvent : UnityEvent<float> // angleDeg
 
 [System.Serializable]
 public class RoverMoveEvent : UnityEvent<float> // speed
+{
+}
+
+[System.Serializable]
+public class PickupEvent: UnityEvent<Pickup>
 {
 }

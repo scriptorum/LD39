@@ -25,5 +25,5 @@ public class Pickup : MonoBehaviour
 
 public enum PickupType
 {
-    Ore
+    Shields, Ore
 }
