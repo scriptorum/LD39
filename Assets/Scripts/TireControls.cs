@@ -5,36 +5,56 @@ using Spewnity;
 
 public class TireControls : MonoBehaviour
 {
+	public ParticleSystem dust;
 	private Anim anim;
-	private const float MAX_TURN = 30f;
+	private const float MAX_TURN = 38f;
+	private static int counter = 0;
+	private float partAccum = 0f;
 
 	void Awake()
 	{
 		anim = GetComponent<Anim>();
+		dust.randomSeed = (uint) (System.Environment.TickCount + counter++);
+	}
+
+	void Start()
+	{
+		anim.Pause();
+		Debug.Log("Randomseed:" + dust.randomSeed);
 	}
 
 	public void onRoverRotate(float angleDeg)
 	{
-		Debug.Log("Angle:" + angleDeg);
-
 		// Restrict tire angle
-		angleDeg = Mathf.Min(MAX_TURN, Mathf.Abs(angleDeg)) * Mathf.Sign(angleDeg);
+		float absAngleDeg = Mathf.Abs(angleDeg);
+		float clampedAngle = Mathf.Min(MAX_TURN, absAngleDeg) * Mathf.Sign(angleDeg);
 
 		// Rotate tire
-		transform.localEulerAngles = new Vector3(0f, 0f, -angleDeg);
+		transform.localEulerAngles = new Vector3(0f, 0f, -clampedAngle);
 	}
 
 	public void onRoverMove(float speed)
 	{
-		if(speed <= 0f)
+		if(speed <= 0.2f)
 		{
 			if(!anim.paused)
+			{
 				anim.Pause();
+				// dust.Emit(20);
+			}
 		}
 		else
 		{
 			if(anim.paused)
-				anim.Resume();
+				anim.Resume();			
+
+			partAccum += speed * 2;
+			if(partAccum > 1.0f)
+			{
+				int particles = Mathf.FloorToInt(partAccum);
+				dust.Emit(particles);
+				partAccum -= particles;
+			}
 		}		
 	}
 }

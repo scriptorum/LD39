@@ -731,16 +731,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212619647249450950, guid: f8ee98fc1be9d4c5a91dd4ee2a3078c7,
+    - target: {fileID: 198264158637279816, guid: f8ee98fc1be9d4c5a91dd4ee2a3078c7,
         type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 23499e2268c1b4c69b5c8ae91b14726a,
-        type: 3}
-    - target: {fileID: 212619647249450950, guid: f8ee98fc1be9d4c5a91dd4ee2a3078c7,
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198264158637279816, guid: f8ee98fc1be9d4c5a91dd4ee2a3078c7,
         type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
+      propertyPath: randomSeed
+      value: 736910443
+      objectReference: {fileID: 0}
+    - target: {fileID: 198264158637279816, guid: f8ee98fc1be9d4c5a91dd4ee2a3078c7,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8ee98fc1be9d4c5a91dd4ee2a3078c7, type: 2}

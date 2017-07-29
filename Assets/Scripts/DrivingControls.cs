@@ -14,7 +14,7 @@ public class DrivingControls : MonoBehaviour
 
     void FixedUpdate()
     {
-		Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		Vector2 input = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
 
 		if(input.x == 0f && input.y == 0f)
 		{
@@ -27,7 +27,6 @@ public class DrivingControls : MonoBehaviour
 		float zDeg = z * Mathf.Rad2Deg;
 
 		float tireAngle = Mathf.DeltaAngle(zDeg, curAngleDeg);
-		Debug.Log("zDeg:" + zDeg + " curAngleDeg:" + curAngleDeg);
 		roverRotate.Invoke(tireAngle);
 
 		// Restrict angle by turning speed
@@ -36,8 +35,8 @@ public class DrivingControls : MonoBehaviour
 
 		// Recalculate input
 		float magnitude = input.magnitude;
-		input.x = Mathf.Sin(z) * magnitude;
-		input.y = Mathf.Cos(z) * -magnitude;
+		input.x = Mathf.Sin(z) * -magnitude;
+		input.y = Mathf.Cos(z) * magnitude;
 
 		// Aim rover
 		transform.eulerAngles = new Vector3(0f, 0f, zDeg);
