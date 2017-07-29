@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644298052793466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.390625, y: 0.328125, z: 0}
+  m_LocalPosition: {x: 0.390625, y: -0.328125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,9 +57,9 @@ MonoBehaviour:
   sequenceName: play
   sequences:
   - name: play
-    frames: 0-7
+    frames: 0-10
     fps: 30
-    frameArray: 0000000001000000020000000300000004000000050000000600000007000000
+    frameArray: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
     deltaTime: 0.033333335
   frames:
   - {fileID: 21300000, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
@@ -70,6 +70,9 @@ MonoBehaviour:
   - {fileID: 21300010, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
   - {fileID: 21300012, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
   - {fileID: 21300014, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
+  - {fileID: 21300016, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
+  - {fileID: 21300018, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
+  - {fileID: 21300020, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
   paused: 1
   onLoop:
     m_PersistentCalls:
@@ -119,7 +122,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
+  m_Sprite: {fileID: 21300022, guid: 23499e2268c1b4c69b5c8ae91b14726a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,5 +130,5 @@ SpriteRenderer:
   m_Size: {x: 0.234375, y: 0.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
