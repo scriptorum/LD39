@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Spewnity;
 
 public class DrivingControls : MonoBehaviour
 {
@@ -16,9 +17,17 @@ public class DrivingControls : MonoBehaviour
     private float curAngleDeg = 0f;
     private Vector2 lastMove;
     private float stunTimer = 0f;
+	private PowerStation powerStation;
+
+	void Awake()
+	{
+		powerStation = GetComponent<PowerStation>();
+	}
 
     void FixedUpdate()
     {
+		if(powerStation.outOfFuel())
+			return;
 
         lastMove = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
 
@@ -55,6 +64,12 @@ public class DrivingControls : MonoBehaviour
             roverMove.Invoke(magnitude);
         }
         else stunTimer -= Time.deltaTime;
+
+		if(powerStation.outOfFuel())
+		{
+			roverRotate.Invoke(0);
+            roverMove.Invoke(0);
+		}
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -65,6 +80,7 @@ public class DrivingControls : MonoBehaviour
             transform.Translate(lastMove.x * -KNOCKBACK, lastMove.y * -KNOCKBACK, 0, Space.World);
             stunTimer = 0.5f;
             stunFx.Play();
+			SoundManager.instance.Play("rover-stun");
         }
 
         Pickup pickup = other.GetComponent<Pickup>();

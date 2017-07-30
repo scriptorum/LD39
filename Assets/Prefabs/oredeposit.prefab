@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411195923066782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.22, y: -3.94, z: 0}
+  m_LocalPosition: {x: 4.36, y: 2.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4044318310387020}
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitFX: {fileID: 198327425384713548}
+  hitSound: rock-damage
+  deathSound: rock-death
   hitFXAmount: 20
-  contentsPrefab: {fileID: 1768767791694160, guid: 5ee58d0b558834945a30b1ab6af46849,
-    type: 2}
   contentsCount: 6
 --- !u!114 &114960239167515620
 MonoBehaviour:

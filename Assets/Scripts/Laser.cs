@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spewnity;
 
 public class Laser : MonoBehaviour
 {
-	private Rigidbody2D rb;
+	private Rigidbody2D rb;	
 
 	void Awake()
 	{
@@ -15,6 +16,7 @@ public class Laser : MonoBehaviour
     {
         rb.AddRelativeForce(new Vector2(0, 1f));
 		Destroy(this.gameObject, 1.0f);
+		SoundManager.instance.Play("laser-fire");
     }
 
 	void OnTriggerEnter2D(Collider2D other)

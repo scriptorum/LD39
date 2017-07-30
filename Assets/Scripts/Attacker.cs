@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spewnity;
 
 public class Attacker : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class Attacker : MonoBehaviour
 		attackCharge += Time.fixedDeltaTime;
 		if(attackCharge < CHARGE_MAX)
 			return;
+
+        SoundManager.instance.Play("brute-attack");
 		attackCharge = 0f;
         roverHealth.takeDamage(attackerDamage);
     }

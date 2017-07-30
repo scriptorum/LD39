@@ -885,13 +885,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 350626939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.052315384, y: 0.02618298, z: -0.0008369017, w: 0.99828696}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 138759567}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.9930005, y: 3.0180001, z: -0.254}
 --- !u!199 &350626941
 ParticleSystemRenderer:
   serializedVersion: 4
@@ -953,7 +953,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 5
   simulationSpeed: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -1003,7 +1003,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1031398174
+  randomSeed: -1778362255
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1647,8 +1647,8 @@ ParticleSystem:
     - time: 0
       minCount: 40
       maxCount: 40
-      cycleCount: 3
-      repeatInterval: 0.1
+      cycleCount: 1
+      repeatInterval: 0.01
   SizeModule:
     enabled: 1
     curve:
@@ -4523,11 +4523,6 @@ Prefab:
     - target: {fileID: 1453874938975758, guid: 408214c1965c04e83bd399c821934f27, type: 2}
       propertyPath: m_Name
       value: brute (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 212431577152219608, guid: 408214c1965c04e83bd399c821934f27,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 408214c1965c04e83bd399c821934f27, type: 2}
@@ -8840,6 +8835,46 @@ Transform:
   m_Father: {fileID: 2107534371}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1722365892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1722365894}
+  - component: {fileID: 1722365893}
+  m_Layer: 0
+  m_Name: AutoPlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1722365893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722365892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b2dcd37b6b14777b9bc1534b5dfdf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1722365894
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722365892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06621547, y: 0.17260794, z: -2.7273192}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1778471378
 GameObject:
   m_ObjectHideFlags: 0
@@ -8985,6 +9020,288 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796290093}
+--- !u!1 &1825471478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1825471480}
+  - component: {fileID: 1825471479}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1825471479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1825471478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd03e7c8ec61485295d495644178f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPoolSize: 32
+  minPoolSize: 1
+  output: {fileID: 0}
+  sounds:
+  - name: brute-damage
+    clips:
+    - {fileID: 8300000, guid: 651cd710eea084fbe8f7b06a4b4a2276, type: 3}
+    - {fileID: 8300000, guid: d48af10fd62ad4326be985dc0149f291, type: 3}
+    - {fileID: 8300000, guid: 5ec0791d278f444b9a704b58ee26a4c7, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: brute-death
+    clips:
+    - {fileID: 8300000, guid: f6def257027d7480cb4865929a4e0ec8, type: 3}
+    - {fileID: 8300000, guid: 0f6598a4dcd2e4505841c67c4dc3d79e, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: song-play
+    clips:
+    - {fileID: 8300000, guid: 3021c4abe2af643d6a63d40fa488170c, type: 3}
+    pitch: 1
+    pitchVariation: 0
+    volume: 0.7
+    volumeVariation: 0
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 0
+    multi: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: song-intro
+    clips:
+    - {fileID: 8300000, guid: a1140117f232f4a91a37cf4a3998cea4, type: 3}
+    pitch: 1
+    pitchVariation: 0
+    volume: 0.7
+    volumeVariation: 0
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 0
+    multi: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: laser-fire
+    clips:
+    - {fileID: 8300000, guid: c53305a1513df4d5b9c239e36de2f8a3, type: 3}
+    - {fileID: 8300000, guid: bf499cfe239194c85b61b837bd363760, type: 3}
+    - {fileID: 8300000, guid: 473073273df074067adcb995ec545371, type: 3}
+    - {fileID: 8300000, guid: add969db569054314844119cb37c6b69, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: brute-attack
+    clips:
+    - {fileID: 8300000, guid: e44f0984c543d47b6a1eaba18dba9326, type: 3}
+    - {fileID: 8300000, guid: 7e626a9726b0d475ab63311257e9334c, type: 3}
+    - {fileID: 8300000, guid: e37ab5019a3304822bd04f701439fad3, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: brute-sighting
+    clips:
+    - {fileID: 8300000, guid: fd99727d790ff438ea2fc06eb525adb7, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: motor-empty
+    clips:
+    - {fileID: 8300000, guid: ecf7442f7b37a4dca92ea226671dac0b, type: 3}
+    pitch: 1
+    pitchVariation: 0
+    volume: 1
+    volumeVariation: 0
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: motor-on
+    clips:
+    - {fileID: 8300000, guid: 5ccf0fca7a64345568b07609ac3a12b9, type: 3}
+    pitch: 1
+    pitchVariation: 0
+    volume: 0.2
+    volumeVariation: 0
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: ore-drop
+    clips:
+    - {fileID: 8300000, guid: fe3bb3b356d4c420f8236c50d98070e6, type: 3}
+    - {fileID: 8300000, guid: 72b8ab75ecdb34065bc4aadffa16089d, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: ore-pickup
+    clips:
+    - {fileID: 8300000, guid: a2239f7a5fcf549e493e103d15206b39, type: 3}
+    - {fileID: 8300000, guid: 8064d0700de2f4f1c9361986516c4e14, type: 3}
+    - {fileID: 8300000, guid: 8885516b009af4c92b43b824d9950be2, type: 3}
+    - {fileID: 8300000, guid: da23c53b97a2149309c922ea0008f1b4, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: rock-death
+    clips:
+    - {fileID: 8300000, guid: 4e678e9fb39ee4e77aa820d0e7306738, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: rock-damage
+    clips:
+    - {fileID: 8300000, guid: 36f63af6243a24742b9e7f1db0a4abf8, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: rover-damage
+    clips:
+    - {fileID: 8300000, guid: fd48e8ff6254b46a6986440fa6c0212f, type: 3}
+    pitch: 1
+    pitchVariation: 0.4
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: rover-death
+    clips:
+    - {fileID: 8300000, guid: 4e678e9fb39ee4e77aa820d0e7306738, type: 3}
+    pitch: 1
+    pitchVariation: 0
+    volume: 1.1
+    volumeVariation: 0
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 1
+    delay: 0
+    source: {fileID: 0}
+  - name: rover-stun
+    clips:
+    - {fileID: 8300000, guid: 4c64ff342e61249dfb5be3c8808701e0, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.9
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  dontDestroy: 0
+  soundsInitialized: 1
+--- !u!4 &1825471480
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1825471478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06621547, y: 0.17260794, z: -2.7273192}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1904034459
 GameObject:
   m_ObjectHideFlags: 0
