@@ -18,8 +18,8 @@ public class StatusBar : MonoBehaviour
 
 	void Update()
 	{
-        if (Config.instance.gamePaused)
-            return;
+        // if (Config.instance.gamePaused)
+        //     return;
 
 		float curScale = fillSprite.transform.localScale.x;
 		float newScale = amount / max;

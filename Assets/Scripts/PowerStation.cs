@@ -7,6 +7,8 @@ public class PowerStation : MonoBehaviour
 {
     public StatusBar power;
     public StatusBar shields;
+    public ParticleSystem explosionPrefab;
+
     private Transform rover;
     private const float fuelRate = 2.0f;
     private const float CHANCE_DROP = 0.1f;
@@ -15,6 +17,10 @@ public class PowerStation : MonoBehaviour
     void Awake()
     {
         rover = transform.Find("/Game/Rover");
+        power = transform.Find("/Camera/StatusBars/Power").GetComponent<StatusBar>();
+        shields = transform.Find("/Camera/StatusBars/Shields").GetComponent<StatusBar>();
+        power.amount = 10;
+        shields.amount = 100;
     }
 
     public bool outOfFuel()
@@ -35,8 +41,8 @@ public class PowerStation : MonoBehaviour
         {
             moving = false;
             power.amount = 0;
-            Debug.Log("TODO: Out of power!");
             SoundManager.instance.Play("motor-empty");
+            Messages.instance.Invoke("outOfFuel", 0.2f);
         }
 
         else
@@ -76,7 +82,7 @@ public class PowerStation : MonoBehaviour
     public void onTakeDamage(int amount, int currentHealth)
     {
         shields.amount = currentHealth;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
             blowUp();
         else
         {
@@ -102,7 +108,10 @@ public class PowerStation : MonoBehaviour
     private void blowUp()
     {
         SoundManager.instance.Play("rover-death");
-        Debug.Log("TODO: You blew up!");
-        // TOSS ALL CRYSTALS
+        Instantiate(explosionPrefab, rover.position, Quaternion.identity);
+        rover.gameObject.SetActive(false);
+        Config.instance.gamePaused = true;
+        Config.instance.gameOver = true;
+        Messages.instance.Invoke("blowUp", 2f);
     }
 }

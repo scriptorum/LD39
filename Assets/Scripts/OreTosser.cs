@@ -10,10 +10,12 @@ public class OreTosser : MonoBehaviour
 
     private const float TOSS = 2f;
     private const float TOSS_SPEED = 0.3f;
+	private Transform game;
 
     void Awake()
     {
         instance = this;
+		game = transform.Find("/Game");
     }
 
     public void toss(Vector3 at, float minToss = 0f)
@@ -25,7 +27,7 @@ public class OreTosser : MonoBehaviour
         Vector3 pos = new Vector3(at.x + tossX, at.y + tossY, 0f);
 
         GameObject go = (GameObject) Instantiate(contentsPrefab, at, Quaternion.identity);
-        go.transform.parent = null;
+        go.transform.parent = game;
 
         CoroutineManager.instance.Run(go.transform.LerpPosition(pos, TOSS_SPEED, null,
             (t) => SoundManager.instance.Play("ore-drop")));

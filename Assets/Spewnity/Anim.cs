@@ -65,7 +65,7 @@ namespace Spewnity
 
         public void Start()
         {
-            Play(sequenceName);
+            Play(sequenceName, paused);
         }
 
         public void OnValidate()
@@ -76,7 +76,7 @@ namespace Spewnity
                 Play(sequenceName);
         }
 
-        public void Play(string name)
+        public void Play(string name, bool startPaused = false)
         {         
             if(name == null || name == "")
             {
@@ -94,7 +94,7 @@ namespace Spewnity
             sequenceName = name;
             frame = 0;
             elapsed = 0;
-            paused = false;
+            paused = startPaused;
             UpdateView();
         }
 

@@ -6,7 +6,7 @@ public class Config : MonoBehaviour
 {
     public static Config instance;
 
-	public bool gamePaused = false;
+	public bool gamePaused = true;
 	public bool gameOver = false;
 
     void Awake()

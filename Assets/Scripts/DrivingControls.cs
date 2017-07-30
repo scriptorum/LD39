@@ -22,6 +22,8 @@ public class DrivingControls : MonoBehaviour
 	void Awake()
 	{
 		powerStation = GetComponent<PowerStation>();
+		CameraFollow cf = Camera.main.gameObject.GetComponent<CameraFollow>();
+		cf.target = transform;
 	}
 
     void FixedUpdate()

@@ -26,6 +26,9 @@ public class Pickup : MonoBehaviour
         if (rover == null || rover.transform == null)
             rover = transform.Find("/Game/Rover");
 
+        if(rover == null)
+            return;
+
         Vector3 diff = transform.position - rover.transform.position;
         if (diff.magnitude < MAGNET_DISTANCE)
         {

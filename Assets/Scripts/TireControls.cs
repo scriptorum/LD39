@@ -17,15 +17,14 @@ public class TireControls : MonoBehaviour
     {
         anim = GetComponent<Anim>();
         dust.randomSeed = (uint)(System.Environment.TickCount + counter++);
-    }
-
-    void Start()
-    {
         anim.Pause();
     }
 
     public void onRoverRotate(float angleDeg)
     {
+        if (Config.instance.gamePaused)
+            return;
+
         // Restrict tire angle
         float absAngleDeg = Mathf.Abs(angleDeg);
         float clampedAngle = Mathf.Min(MAX_TURN, absAngleDeg) * Mathf.Sign(angleDeg);
@@ -37,6 +36,9 @@ public class TireControls : MonoBehaviour
 
     public void onRoverMove(float speed)
     {
+        if (Config.instance.gamePaused)
+            return;
+
         if (speed <= 0.01f)
         {
             if (!anim.paused)
