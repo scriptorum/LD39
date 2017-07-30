@@ -57,6 +57,7 @@ public class PowerStation : MonoBehaviour
                 if (power.amount <= 0)
                     break;
 
+                // TODO Sometimes destroy fuel instead of dropping it?
                 else if (Random.Range(0.0f, 1.0f) < CHANCE_DROP)
                 {
                     OreTosser.instance.toss(rover.position, 2f);
@@ -71,5 +72,4 @@ public class PowerStation : MonoBehaviour
         Debug.Log("TODO: You blew up!");
         // TOSS ALL CRYSTALS
     }
-
 }
