@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public int ore = 0;
+    public float ore = 5;
     private Text oreText;
 
     void Awake()
     {
         oreText = transform.Find("ore").GetComponent<Text>();
+        oreText.text = ore.ToString();
     }
 
     public void onPickup(Pickup pickup)
@@ -27,12 +28,12 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void onDrop(PickupType type, int count)
+    public void onDrop(PickupType type, float amount)
     {
         switch (type)
         {
             case PickupType.Ore:
-                ore -= count;
+                ore -= amount;
                 oreText.text = ore.ToString();
                 break;
 

@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 138759564}
   - component: {fileID: 138759569}
   - component: {fileID: 138759568}
+  - component: {fileID: 138759570}
   m_Layer: 0
   m_Name: Rover
   m_TagString: Player
@@ -236,6 +237,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 730430886}
         m_MethodName: onRoverMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 138759570}
+        m_MethodName: onMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -367,6 +379,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &138759570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 138759563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29843f9bcafc49e29a74233ef80fd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 784134863}
 --- !u!4 &270163829 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4130738976502732, guid: f8ee98fc1be9d4c5a91dd4ee2a3078c7,
@@ -686,7 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ce649b5f6694c0aae0a35fa6528886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ore: 0
+  ore: 5
 --- !u!1001 &795920126
 Prefab:
   m_ObjectHideFlags: 0
