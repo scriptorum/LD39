@@ -5,12 +5,20 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public PickupType type;
+    public bool available = false;
     private Transform rover;
     private const float MAGNET_DISTANCE = 2.0f;
     private const float MAGNET_SPEED = 5.0f;
+    private const float MAGNET_CHARGE = 0.6f;
+    private float lifetime = 0f;
 
-    void Update()
+    void FixedUpdate()
     {
+        lifetime += Time.deltaTime;
+        if(lifetime < MAGNET_CHARGE)
+            return;
+        available = true;
+
         if (rover == null)
             rover = transform.Find("/Rover");
 

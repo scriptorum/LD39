@@ -6,8 +6,14 @@ public class PowerStation : MonoBehaviour
 {
     public StatusBar power;
     public StatusBar shields;
+    private Transform rover;
+    private const float fuelRate = 2.0f;
+    private const float CHANCE_DROP = 0.1f;
 
-    public float fuelRate = 2.0f;
+    void Awake()
+    {
+        rover = transform.Find("/Rover");
+    }
 
     public void onMove(float amount)
     {
@@ -41,8 +47,29 @@ public class PowerStation : MonoBehaviour
 
     public void onTakeDamage(int amount, int currentHealth)
     {
-		shields.amount = currentHealth;
-		if(currentHealth < 0)
-            Debug.Log("TODO: You blew up!");
+        shields.amount = currentHealth;
+        if (currentHealth < 0)
+            blowUp();
+        else
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                if (power.amount <= 0)
+                    break;
+
+                else if (Random.Range(0.0f, 1.0f) < CHANCE_DROP)
+                {
+                    OreTosser.instance.toss(rover.position, 2f);
+                    power.amount--;
+                }
+            }
+        }
     }
+
+    private void blowUp()
+    {
+        Debug.Log("TODO: You blew up!");
+        // TOSS ALL CRYSTALS
+    }
+
 }

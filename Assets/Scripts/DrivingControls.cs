@@ -67,7 +67,7 @@ public class DrivingControls : MonoBehaviour
 		}
 
 		Pickup pickup = other.GetComponent<Pickup>();
-		if(pickup != null)
+		if(pickup != null && pickup.available)
 		{
 			roverPickup.Invoke(pickup);
 			GameObject.Destroy(pickup.gameObject);
