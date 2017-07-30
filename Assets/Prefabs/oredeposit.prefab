@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitFX: {fileID: 198327425384713548}
-  hitFXAmount: 30
+  hitFXAmount: 20
   contentsPrefab: {fileID: 1768767791694160, guid: 5ee58d0b558834945a30b1ab6af46849,
     type: 2}
   contentsCount: 6
@@ -192,7 +192,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1813626866
+  randomSeed: -1712709789
   InitialModule:
     serializedVersion: 3
     enabled: 1
