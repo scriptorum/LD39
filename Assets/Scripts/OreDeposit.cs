@@ -26,7 +26,7 @@ public class OreDeposit : MonoBehaviour
 
 			GetComponent<SpriteRenderer>().enabled = false;
 			GetComponent<CircleCollider2D>().enabled = false;
-			Destroy(gameObject, 3.0f); // wait for dust to settle
+			Destroy(gameObject, 6.0f); // wait for dust to settle
 		}
 
 		else
