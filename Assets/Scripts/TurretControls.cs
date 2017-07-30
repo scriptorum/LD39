@@ -17,6 +17,9 @@ public class TurretControls : MonoBehaviour
 
     void Update()
     {
+        if (Config.instance.gamePaused)
+            return;
+
         chargeTime += Time.deltaTime;
 
         lastGamePad = new Vector2(-Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));

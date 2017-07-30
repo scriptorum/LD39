@@ -13,15 +13,34 @@ public class Messages : MonoBehaviour
     {
 		instance = this;
 		sr = GetComponent<SpriteRenderer>();
-		hide();
+		sr.enabled = false;
+		text.enabled = false;
+
     }
+
+	void Start()
+	{
+		show("Hi there");
+	}
+
+	void Update()
+	{
+		if(Config.instance.gamePaused)
+		{
+			if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button16))
+			{
+				hide();
+				// TODO SFX
+			}
+		}
+	}
 
 	public void show(string msg)
 	{
 		text.text = msg;
 		sr.enabled = true;
 		text.enabled = true;
-		// TODO Pause whole game -- put everything in Game object, so you can just deactivate it
+		Config.instance.gamePaused = true;
 		// TODO Wait for LMB or (A)
 	}
 
@@ -29,5 +48,6 @@ public class Messages : MonoBehaviour
 	{
 		sr.enabled = false;
 		text.enabled = false;
+		Config.instance.gamePaused = false;
 	}
 }

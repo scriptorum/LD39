@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Spewnity;
+using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
@@ -15,24 +15,28 @@ public class Pickup : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Config.instance.gamePaused)
+            return;
+
         lifetime += Time.deltaTime;
-        if(lifetime < MAGNET_CHARGE)
+        if (lifetime < MAGNET_CHARGE)
             return;
         available = true;
 
         if (rover == null || rover.transform == null)
             rover = transform.Find("/Game/Rover");
 
-		Vector3 diff = transform.position - rover.transform.position;
+        Vector3 diff = transform.position - rover.transform.position;
         if (diff.magnitude < MAGNET_DISTANCE)
-        { 
-			diff.Normalize();
-			transform.Translate(-diff * Time.deltaTime * MAGNET_SPEED);
-		}
+        {
+            diff.Normalize();
+            transform.Translate(-diff * Time.deltaTime * MAGNET_SPEED);
+        }
     }
 }
 
 public enum PickupType
 {
-    Shields, Ore
+    Shields,
+    Ore
 }

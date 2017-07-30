@@ -26,6 +26,9 @@ public class DrivingControls : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Config.instance.gamePaused)
+            return;
+
 		if(powerStation.outOfFuel())
 			return;
 

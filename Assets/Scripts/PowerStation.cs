@@ -14,7 +14,7 @@ public class PowerStation : MonoBehaviour
 
     void Awake()
     {
-        rover = transform.Find("/Rover");
+        rover = transform.Find("/Game/Rover");
     }
 
     public bool outOfFuel()

@@ -7,7 +7,6 @@ public class Attacker : MonoBehaviour
 {
     private Health roverHealth;
 	private Damage attackerDamage;
-    private bool attacking = false;
     private const float ATTACKING_RANGE = 1.25f;
 	private const float FORGET_RANGE = 10f;
     private const float SPEED = 2f;
@@ -23,6 +22,9 @@ public class Attacker : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Config.instance.gamePaused)
+            return;
+
         Vector3 diff = transform.position - roverHealth.transform.position;
 		float magnitude = diff.magnitude;
 

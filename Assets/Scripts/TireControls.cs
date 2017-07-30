@@ -22,7 +22,6 @@ public class TireControls : MonoBehaviour
     void Start()
     {
         anim.Pause();
-        Debug.Log("Randomseed:" + dust.randomSeed);
     }
 
     public void onRoverRotate(float angleDeg)
