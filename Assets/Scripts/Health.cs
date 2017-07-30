@@ -24,10 +24,13 @@ public class Health : MonoBehaviour
     {
         health -= damage.damage;
 
-        onDamage.Invoke(damage.damage, health);
-
         if (health < 0)
+        {
             dead = true;
+            health = 0;
+        }
+
+        onDamage.Invoke(damage.damage, health);
     }
 }
 
