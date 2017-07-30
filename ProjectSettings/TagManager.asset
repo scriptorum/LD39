@@ -6,6 +6,7 @@ TagManager:
   tags:
   - damage
   - solid
+  - cloud
   layers:
   - Default
   - TransparentFX

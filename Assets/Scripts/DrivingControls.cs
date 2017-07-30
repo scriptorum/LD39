@@ -59,12 +59,16 @@ public class DrivingControls : MonoBehaviour
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("Trigger");
 		if(other.tag == "solid")
 		{
 			lastMove.Normalize();
 			transform.Translate(lastMove.x * -KNOCKBACK, lastMove.y * -KNOCKBACK, 0, Space.World);
 			stunTimer = 0.5f;
+		}
+
+		else if(other.tag == "cloud")
+		{
+			Debug.Log("Cloud!");
 		}
 
 		Pickup pickup = other.GetComponent<Pickup>();
