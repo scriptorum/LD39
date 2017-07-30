@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
+  originatedFromPlayer: 1
 --- !u!114 &114667233061835020
 MonoBehaviour:
   m_ObjectHideFlags: 1

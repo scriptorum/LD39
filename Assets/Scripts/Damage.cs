@@ -5,5 +5,6 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public int damage;
+    public bool originatedFromPlayer;
     // TODO type of damage
 }

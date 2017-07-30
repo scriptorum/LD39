@@ -31,7 +31,7 @@ public class Container : MonoBehaviour
 
 		else
 		{
-			Debug.Log("Ouch");
+			// TODO Randomly spit out one content?
 		}
 	}
 }
