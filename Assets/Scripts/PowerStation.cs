@@ -90,6 +90,8 @@ public class PowerStation : MonoBehaviour
                 // TODO Sometimes destroy fuel instead of dropping it?
                 else if (Random.Range(0.0f, 1.0f) < CHANCE_DROP)
                 {
+                    if(rover == null || rover.transform == null)
+                        rover = transform.Find("/Game/Rover");
                     OreTosser.instance.toss(rover.position, 2f);
                     power.amount--;
                 }

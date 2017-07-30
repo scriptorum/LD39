@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 5a621d823c29244b49ee364c3ee643ba
+timeCreated: 1501448315
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: VTF MisterPixel
+  fontNames:
+  - VTF MisterPixel
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

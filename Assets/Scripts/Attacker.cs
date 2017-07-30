@@ -17,7 +17,7 @@ public class Attacker : MonoBehaviour
     
 	void Awake()
     {
-		roverHealth = GameObject.Find("/Rover").GetComponent<Health>();
+		roverHealth = GameObject.Find("Rover").GetComponent<Health>();
 		attackerDamage = GetComponent<Damage>();
     }
 
