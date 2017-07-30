@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114452204938615522}
   - component: {fileID: 114723976333605926}
   - component: {fileID: 70818161380739938}
+  - component: {fileID: 114742629525268488}
+  - component: {fileID: 114717988661289838}
   m_Layer: 0
   m_Name: brute
   m_TagString: solid
@@ -117,6 +119,18 @@ MonoBehaviour:
     m_TypeName: DamageEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   health: 40
   dead: 0
+--- !u!114 &114717988661289838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453874938975758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad01aa914c2f4cf9908def5b88d842b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!114 &114723976333605926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +146,18 @@ MonoBehaviour:
   hitFXAmount: 30
   contentsPrefab: {fileID: 1768767791694160, guid: 5ee58d0b558834945a30b1ab6af46849,
     type: 2}
-  contentsCount: 20
+  contentsCount: 5
+--- !u!114 &114742629525268488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453874938975758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673a1672893e944c4a59617022b09a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198194829814881028
 ParticleSystem:
   m_ObjectHideFlags: 1

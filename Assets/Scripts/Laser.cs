@@ -19,6 +19,9 @@ public class Laser : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		if(other.tag == "Player")
+			return;
+			
 		Health health = other.gameObject.GetComponent<Health>();
 		if(health != null)
 			Destroy(this.gameObject);
