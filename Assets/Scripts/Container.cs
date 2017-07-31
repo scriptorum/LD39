@@ -31,10 +31,7 @@ public class Container : MonoBehaviour
             Destroy(gameObject);
 
             if (deathPrefab != null)
-            {
-                GameObject go = Instantiate(deathPrefab, transform.position, Quaternion.identity);
-                go.transform.parent = transform.Find("/Game");
-            }
+                Instantiate(deathPrefab, transform.position, Quaternion.identity);
         }
         else SoundManager.instance.Play(hitSound);
     }

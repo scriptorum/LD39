@@ -11,12 +11,10 @@ public class OreTosser : MonoBehaviour
 
     private const float TOSS = 2f;
     private const float TOSS_SPEED = 0.3f;
-	private Transform game;
 
     void Awake()
     {
         instance = this;
-		game = transform.Find("/Game");
     }
 
     public void toss(Vector3 at, PickupType type, float minToss = 0f)
@@ -30,7 +28,6 @@ public class OreTosser : MonoBehaviour
         GameObject prefab = type == PickupType.Shields ? shieldsPrefab : orePrefab;
 
         GameObject go = (GameObject) Instantiate(prefab, at, Quaternion.identity);
-        go.transform.parent = game;
 
         CoroutineManager.instance.Run(go.transform.LerpPosition(pos, TOSS_SPEED, null,
             (t) => SoundManager.instance.Play("ore-drop")));

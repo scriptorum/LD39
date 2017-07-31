@@ -17,8 +17,8 @@ public class PowerStation : MonoBehaviour
     void Awake()
     {
         rover = transform.Find("/Game/Rover");
-        power = transform.Find("/Camera/StatusBars/Power").GetComponent<StatusBar>();
-        shields = transform.Find("/Camera/StatusBars/Shields").GetComponent<StatusBar>();
+        power = transform.Find("/Global/Camera/StatusBars/Power").GetComponent<StatusBar>();
+        shields = transform.Find("/Global/Camera/StatusBars/Shields").GetComponent<StatusBar>();
         power.amount = 10;
         shields.amount = 50;
     }

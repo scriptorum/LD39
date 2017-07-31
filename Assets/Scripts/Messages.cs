@@ -63,31 +63,6 @@ public class Messages : MonoBehaviour
         text.enabled = false;
         Config.instance.gamePaused = false;
     }
-
-    void Start()
-    {
-        msg1();
-    }
-
-    public void msg1()
-    {
-        show("<Incoming Message>", msg2);
-    }
-    public void msg2()
-    {
-        show("Oof! You're a in real pickle there. Look at your fuel gauge below! Not enough to get back to your ship. At least you got shields.", msg3);
-    }
-
-    public void msg3()
-    {
-        show("I guess I'll help since I'm on coffee break. See those rocks? Shoot them with your mining laser. Your rover can process them as fuel.", msg4);
-    }
-
-    public void msg4()
-    {
-        show("Move with arrows or AWSD. Your rover is equipped with a mouse and a left button to aim and fire. Or maybe you have a gamepad and the developer got the button assignments correct? Not likely!");
-    }
-
     public void outOfFuel()
     {
         show("Yup. You're out of fuel. That's bad. Well I tried to help. How much oxygen do you have left? So ah ... I gotta run. I got this thing. In space.", msg10);
@@ -110,6 +85,6 @@ public class Messages : MonoBehaviour
 
     public void restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("level1");
     }
 }
