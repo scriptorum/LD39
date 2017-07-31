@@ -10,6 +10,8 @@ public class Container : MonoBehaviour
 	public string deathSound;
 	public int hitFXAmount = 30;
 	public int contentsCount = 6;
+	public PickupType type;
+
 	public void OnDamage(int damage, int healthRemaining)
 	{
 		hitFX.Emit(hitFXAmount);
@@ -19,7 +21,7 @@ public class Container : MonoBehaviour
 			SoundManager.instance.Play(deathSound);			
 
 			while(contentsCount-- > 0)
-				OreTosser.instance.toss(transform.position);
+				OreTosser.instance.toss(transform.position, type);
 
 			transform.DetachChildren();
 			Destroy(gameObject);

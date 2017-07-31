@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114960239167515620}
   - component: {fileID: 114195362430282544}
   m_Layer: 0
-  m_Name: oredeposit
+  m_Name: rock1
   m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   deathSound: rock-death
   hitFXAmount: 20
   contentsCount: 6
+  type: 1
 --- !u!114 &114960239167515620
 MonoBehaviour:
   m_ObjectHideFlags: 1

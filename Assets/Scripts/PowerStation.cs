@@ -20,18 +20,18 @@ public class PowerStation : MonoBehaviour
         power = transform.Find("/Camera/StatusBars/Power").GetComponent<StatusBar>();
         shields = transform.Find("/Camera/StatusBars/Shields").GetComponent<StatusBar>();
         power.amount = 10;
-        shields.amount = 100;
+        shields.amount = 50;
     }
 
     void Update()
     {
-        #if DEBUG
-            if(Input.GetKeyDown(KeyCode.F))
-            {
-                power.amount = power.max;
-                shields.amount = shields.max;
-            }
-        #endif
+#if DEBUG
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            power.amount = power.max;
+            shields.amount = shields.max;
+        }
+#endif
     }
 
     public bool outOfFuel()
@@ -58,7 +58,7 @@ public class PowerStation : MonoBehaviour
 
         else
         {
-            if(amount == 0)
+            if (amount == 0)
             {
                 moving = false;
                 return;
@@ -74,20 +74,39 @@ public class PowerStation : MonoBehaviour
         }
     }
 
-    public void onCollectFuel(float amount)
+    public void onCollect(Pickup pickup)
     {
-        if (power.amount == power.max)
-        {
-            Debug.Log("TODO: Respawn fuel");
-            return;
-        }
-
         SoundManager.instance.Play("ore-pickup");
 
-        power.amount += amount;
-        if (power.amount > power.max)
-            power.amount = power.max;
+        switch (pickup.type)
+        {
+            case PickupType.Ore:
+                if (power.amount == power.max)
+                {
+                    Debug.Log("TODO: Respawn ore");
+                    return;
+                }
+                power.amount += 1;
+                if (power.amount > power.max)
+                    power.amount = power.max;
 
+                break;
+
+            case PickupType.Shields:
+                if (shields.amount == shields.max)
+                {
+                    Debug.Log("TODO: Respawn shield");
+                    return;
+                }
+                shields.amount += 1;
+                if (shields.amount > power.max)
+                    shields.amount = power.max;
+                break;
+
+            default:
+                Debug.Log("WTF");
+                break;
+        }
     }
 
     public void onTakeDamage(int amount, int currentHealth)
@@ -107,9 +126,9 @@ public class PowerStation : MonoBehaviour
                 // TODO Sometimes destroy fuel instead of dropping it?
                 else if (Random.Range(0.0f, 1.0f) < CHANCE_DROP)
                 {
-                    if(rover == null || rover.transform == null)
+                    if (rover == null || rover.transform == null)
                         rover = transform.Find("/Game/Rover");
-                    OreTosser.instance.toss(rover.position, 2f);
+                    OreTosser.instance.toss(rover.position, PickupType.Ore, 2f);
                     power.amount--;
                 }
             }
