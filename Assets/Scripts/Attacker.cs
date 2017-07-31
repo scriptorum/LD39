@@ -8,15 +8,17 @@ public class Attacker : MonoBehaviour
     private Health roverHealth;
     private Damage attackerDamage;
     private const float ATTACKING_RANGE = 1.25f;
-    private const float FORGET_RANGE = 10f;
+    private const float FORGET_RANGE = 8f;
     private const float SPEED = 2f;
     private const float JITTER = 0.05f;
     private const float CHARGE_MAX = .3f;
     private float attackCharge = 0f;
+    private Anim anim;
 
     void Awake()
     {
         attackerDamage = GetComponent<Damage>();
+        anim = GetComponent<Anim>();
     }
 
     void FixedUpdate()
@@ -47,6 +49,7 @@ public class Attacker : MonoBehaviour
         if (attackCharge < CHARGE_MAX)
             return;
 
+        anim.Play("attack");
         SoundManager.instance.Play("brute-attack");
         attackCharge = 0f;
         roverHealth.takeDamage(attackerDamage);
@@ -54,6 +57,7 @@ public class Attacker : MonoBehaviour
 
     private void chase(Vector3 diff)
     {
+        anim.Play("idle");
         diff.Normalize();
         float speed = SPEED * Time.fixedDeltaTime;
         transform.Translate((speed + Random.Range(-JITTER, JITTER)) * -diff.x, (speed + Random.Range(-JITTER, JITTER)) * -diff.y, 0f);
