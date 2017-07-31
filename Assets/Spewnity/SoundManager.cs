@@ -182,7 +182,8 @@ namespace Spewnity
 			{
 				if(openPool.Count == 0)
 				{
-					if(EnlargePool() == false) throw new UnityException("Cannot play sound " + sound.name + "; no open audio sources remaining in pool");
+					if(EnlargePool() == false) 
+						Debug.Log("Cannot play sound " + sound.name + "; no open audio sources remaining in pool");
 				}							
 				sound.source = openPool[0];
 				openPool.RemoveAt(0);

@@ -12,18 +12,19 @@ public class DrivingControls : MonoBehaviour
     public PickupEvent roverPickup;
 
     private const float TURN_SPEED = 5f;
-    private const float KNOCKBACK = 0.5f;
     private float speed = 8f;
     private float curAngleDeg = 0f;
     private Vector2 lastMove;
     private float stunTimer = 0f;
 	private PowerStation powerStation;
+    private Vector3 oldPos;
 
 	void Awake()
 	{
 		powerStation = GetComponent<PowerStation>();
 		CameraFollow cf = Camera.main.gameObject.GetComponent<CameraFollow>();
 		cf.target = transform;
+        oldPos = transform.position;
 	}
 
     void FixedUpdate()
@@ -65,6 +66,7 @@ public class DrivingControls : MonoBehaviour
         // Move rover
         if (stunTimer <= 0f)
         {
+            oldPos = transform.position;
             transform.Translate(lastMove.x * Time.deltaTime * speed, lastMove.y * Time.deltaTime * speed, 0, Space.World);
             roverMove.Invoke(magnitude);
         }
@@ -82,7 +84,7 @@ public class DrivingControls : MonoBehaviour
         if (other.tag == "solid")
         {
             lastMove.Normalize();
-            transform.Translate(lastMove.x * -KNOCKBACK, lastMove.y * -KNOCKBACK, 0, Space.World);
+            transform.position = oldPos;
             stunTimer = 0.5f;
             stunFx.Play();
 			SoundManager.instance.Play("rover-stun");

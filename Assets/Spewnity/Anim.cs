@@ -77,7 +77,15 @@ namespace Spewnity
         }
 
         public void Play(string name, bool startPaused = false)
-        {         
+        {
+            if(sequenceName == name)
+                return;
+
+            Replay(name);
+        }
+
+        public void Replay(string name, bool startPaused = false)
+        {      
             if(name == null || name == "")
             {
                 Clear();

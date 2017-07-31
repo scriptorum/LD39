@@ -23,6 +23,17 @@ public class PowerStation : MonoBehaviour
         shields.amount = 100;
     }
 
+    void Update()
+    {
+        #if DEBUG
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                power.amount = power.max;
+                shields.amount = shields.max;
+            }
+        #endif
+    }
+
     public bool outOfFuel()
     {
         return power.amount <= 0;
