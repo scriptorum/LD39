@@ -11,6 +11,7 @@ public class Container : MonoBehaviour
     public string deathSound;
     public int hitFXAmount = 30;
     public int contentsCount = 6;
+    public bool detachChildrenWhenDying = true;
     public PickupType type;
 
     public void OnDamage(int damage, int healthRemaining)
@@ -25,7 +26,8 @@ public class Container : MonoBehaviour
             while (contentsCount-- > 0)
                 OreTosser.instance.toss(transform.position, type);
 
-            transform.DetachChildren();
+            if (detachChildrenWhenDying)
+                transform.DetachChildren();
             Destroy(gameObject);
 
             if (deathPrefab != null)
