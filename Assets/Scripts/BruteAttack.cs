@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Spewnity;
 using UnityEngine;
 
-public class Attacker : MonoBehaviour
+public class BruteAttack : MonoBehaviour
 {
     private Health roverHealth;
     private Damage attackerDamage;

@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673a1672893e944c4a59617022b09a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bruteDeadPrefab: {fileID: 0}
 --- !u!114 &114811767656552172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitFX: {fileID: 198019793159332602}
+  deathPrefab: {fileID: 1411727897328744, guid: 523582bf19cd44d1db0b0b7888b06910,
+    type: 2}
   hitSound: brute-damage
   deathSound: brute-death
   hitFXAmount: 30

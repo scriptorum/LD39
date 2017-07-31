@@ -6,6 +6,7 @@ using Spewnity;
 public class Container : MonoBehaviour 
 {
 	public ParticleSystem hitFX;
+	public GameObject deathPrefab;
 	public string hitSound;
 	public string deathSound;
 	public int hitFXAmount = 30;
@@ -25,6 +26,12 @@ public class Container : MonoBehaviour
 
 			transform.DetachChildren();
 			Destroy(gameObject);
+			
+			if(deathPrefab != null)
+			{
+				GameObject go = Instantiate(deathPrefab, transform.position, Quaternion.identity);
+				go.transform.parent = transform.Find("/Game");
+			}
 		}
 		else SoundManager.instance.Play(hitSound);
 	}
