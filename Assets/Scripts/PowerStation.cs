@@ -110,8 +110,7 @@ public class PowerStation : MonoBehaviour
         SoundManager.instance.Play("rover-death");
         Instantiate(explosionPrefab, rover.position, Quaternion.identity);
         rover.gameObject.SetActive(false);
-        Config.instance.gamePaused = true;
         Config.instance.gameOver = true;
-        Messages.instance.Invoke("blowUp", 2f);
+        Messages.instance.Invoke("blowUp", 0.1f);
     }
 }
