@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Spewnity;
 using UnityEngine;
 using UnityEngine.Events;
-using Spewnity;
 
 public class DrivingControls : MonoBehaviour
 {
@@ -16,24 +16,24 @@ public class DrivingControls : MonoBehaviour
     private float curAngleDeg = 0f;
     private Vector2 lastMove;
     private float stunTimer = 0f;
-	private PowerStation powerStation;
+    private PowerStation powerStation;
     private Vector3 oldPos;
 
-	void Awake()
-	{
-		powerStation = GetComponent<PowerStation>();
-		CameraFollow cf = Camera.main.gameObject.GetComponent<CameraFollow>();
-		cf.target = transform;
+    void Awake()
+    {
+        powerStation = GetComponent<PowerStation>();
+        CameraFollow cf = Camera.main.gameObject.GetComponent<CameraFollow>();
+        cf.target = transform;
         oldPos = transform.position;
-	}
+    }
 
     void FixedUpdate()
     {
         if (Config.instance.gamePaused)
             return;
 
-		if(powerStation.outOfFuel())
-			return;
+        if (powerStation.outOfFuel())
+            return;
 
         lastMove = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
 
@@ -72,11 +72,11 @@ public class DrivingControls : MonoBehaviour
         }
         else stunTimer -= Time.deltaTime;
 
-		if(powerStation.outOfFuel())
-		{
-			roverRotate.Invoke(0);
+        if (powerStation.outOfFuel())
+        {
+            roverRotate.Invoke(0);
             roverMove.Invoke(0);
-		}
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -87,9 +87,12 @@ public class DrivingControls : MonoBehaviour
             transform.position = oldPos;
             stunTimer = 0.5f;
             stunFx.Play();
-			SoundManager.instance.Play("rover-stun");
+            SoundManager.instance.Play("rover-stun");
         }
+    }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
         Pickup pickup = other.GetComponent<Pickup>();
         if (pickup != null && pickup.available)
         {
@@ -97,7 +100,6 @@ public class DrivingControls : MonoBehaviour
             GameObject.Destroy(pickup.gameObject);
         }
     }
-
 }
 
 [System.Serializable]
@@ -109,5 +111,4 @@ public class RoverMoveEvent : UnityEvent<float> // speed
     { }
 
 [System.Serializable]
-public class PickupEvent : UnityEvent<Pickup>
-{ }
+public class PickupEvent : UnityEvent<Pickup> { }
