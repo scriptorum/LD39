@@ -65,7 +65,7 @@ namespace Spewnity
 
         public void Start()
         {
-            Play(sequenceName, paused);
+            Replay(sequenceName, paused);
         }
 
         public void OnValidate()
@@ -73,7 +73,7 @@ namespace Spewnity
             UpdateCache();
 
             if (livePreview && (sequence == null || sequence.name != sequenceName))
-                Play(sequenceName);
+                Replay(sequenceName);
         }
 
         public void Play(string name, bool startPaused = false)
