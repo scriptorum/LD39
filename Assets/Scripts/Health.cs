@@ -14,7 +14,9 @@ public class Health : MonoBehaviour
         if (other.tag == "damage")
         {
             Damage damage = other.gameObject.GetComponent<Damage>();
-            if(gameObject.name == "Rover" && damage.originatedFromPlayer)
+            if(gameObject.name == "Rover" && damage.type == DamageType.Player)
+                return;
+            if(gameObject.name == "Saucer" && damage.type == DamageType.Enemy)
                 return;
             takeDamage(damage);
         }

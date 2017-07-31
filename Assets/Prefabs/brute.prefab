@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332636929337882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.752507, y: 8.774361, z: 0}
+  m_LocalPosition: {x: -2.9875362, y: 9.079931, z: 7.43972}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4413851629775708}
@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673a1672893e944c4a59617022b09a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bruteDeadPrefab: {fileID: 0}
 --- !u!114 &114811767656552172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,6 +170,7 @@ MonoBehaviour:
   deathSound: brute-death
   hitFXAmount: 30
   contentsCount: 5
+  detachChildrenWhenDying: 1
   type: 1
 --- !u!114 &114984834948778708
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  originatedFromPlayer: 0
+  type: 1
 --- !u!114 &114999998071460980
 MonoBehaviour:
   m_ObjectHideFlags: 1

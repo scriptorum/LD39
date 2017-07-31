@@ -5,6 +5,10 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public int damage;
-    public bool originatedFromPlayer;
-    // TODO type of damage
+    public DamageType type = DamageType.Player;
+}
+
+public enum DamageType
+{
+    Player, Enemy
 }

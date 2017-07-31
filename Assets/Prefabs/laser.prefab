@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4514109992445032}
   - component: {fileID: 212994176201417262}
   - component: {fileID: 114562353880389754}
-  - component: {fileID: 50802671749441040}
   - component: {fileID: 58028625631958254}
   - component: {fileID: 114667233061835020}
+  - component: {fileID: 50712283488225504}
   m_Layer: 0
   m_Name: laser
   m_TagString: damage
@@ -44,7 +44,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50802671749441040
+--- !u!50 &50712283488225504
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  originatedFromPlayer: 1
+  type: 0
 --- !u!114 &114667233061835020
 MonoBehaviour:
   m_ObjectHideFlags: 1
