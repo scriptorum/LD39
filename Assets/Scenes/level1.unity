@@ -1688,6 +1688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf7cb73ecc8a4289b20831f1916c5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartPower: 10
+  restartShields: 50
 --- !u!1001 &1603072791
 Prefab:
   m_ObjectHideFlags: 0

@@ -26,11 +26,17 @@ public class Saucer : MonoBehaviour
         if (Config.instance.gamePaused)
             return;
 
-        if(rover == null)
-            rover = transform.Find("/Game/Rover");
-        if(rover == null)
-            return;          
-
+       if (rover == null)
+        {
+            GameObject game = GameObject.Find("/Game");
+            if (game != null)
+            {
+                rover = game.transform.Find("Rover");
+                if (rover == null)
+                    return;
+            }
+        }
+        
         Vector3 diff = rover.position - transform.position;
 		if(diff.magnitude > SIGHT)
 			return;

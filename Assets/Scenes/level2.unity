@@ -1542,6 +1542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf7cb73ecc8a4289b20831f1916c5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartPower: 50
+  restartShields: 20
 --- !u!114 &1456482988
 MonoBehaviour:
   m_ObjectHideFlags: 0

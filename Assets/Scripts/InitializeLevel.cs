@@ -5,6 +5,9 @@ using Spewnity;
 
 public class InitializeLevel : MonoBehaviour
 {
+    public int restartPower = 20;
+    public int restartShields = 50;
+
     void Awake()
     {
         Debug.Log("InitializeLevel is awake!");
@@ -25,9 +28,15 @@ public class InitializeLevel : MonoBehaviour
         }
 
         Debug.Log("Found rover!");
-        // If power or shields == 0, reset either to reasonable setting for this level
         rover.position = Vector3.zero;
         rover.gameObject.SetActive(true);
+
+        PowerStation ps = rover.GetComponent<PowerStation>();
+        if(ps.power.amount <= 0)
+            ps.power.amount = restartPower;
+        if(ps.shields.amount <= 0)
+            ps.shields.amount = restartShields;
+
         Config.instance.gameOver = false;
         Camera.main.transform.position = new Vector3(0, 0, -10);
     }

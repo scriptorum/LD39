@@ -9,14 +9,12 @@ public class PowerStation : MonoBehaviour
     public StatusBar shields;
     public ParticleSystem explosionPrefab;
 
-    private Transform rover;
     private const float fuelRate = 2.0f;
     private const float CHANCE_DROP = 0.1f;
     private bool moving = false;
 
     void Awake()
     {
-        rover = transform.Find("/Game/Rover");
         power = transform.Find("/Global/Camera/StatusBars/Power").GetComponent<StatusBar>();
         shields = transform.Find("/Global/Camera/StatusBars/Shields").GetComponent<StatusBar>();
         power.amount = 10;
@@ -25,6 +23,7 @@ public class PowerStation : MonoBehaviour
 
     void Update()
     {
+
 #if DEBUG
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -126,9 +125,7 @@ public class PowerStation : MonoBehaviour
                 // TODO Sometimes destroy fuel instead of dropping it?
                 else if (Random.Range(0.0f, 1.0f) < CHANCE_DROP)
                 {
-                    if (rover == null || rover.transform == null)
-                        rover = transform.Find("/Game/Rover");
-                    OreTosser.instance.toss(rover.position, PickupType.Ore, 2f);
+                    OreTosser.instance.toss(transform.position, PickupType.Ore, 2f);
                     power.amount--;
                 }
             }
@@ -138,9 +135,9 @@ public class PowerStation : MonoBehaviour
     private void blowUp()
     {
         SoundManager.instance.Play("rover-death");
-        Instantiate(explosionPrefab, rover.position, Quaternion.identity);
-        rover.gameObject.SetActive(false);
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Config.instance.gameOver = true;
         Messages.instance.Invoke("blowUp", 0.1f);
+        gameObject.SetActive(false);
     }
 }

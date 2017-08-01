@@ -25,18 +25,22 @@ public class BruteAttack : MonoBehaviour
         oldPos = transform.position;
     }
 
-    void Start()
-    {
-        roverHealth = GameObject.Find("/Game/Rover").GetComponent<Health>();
-    }
-
     void FixedUpdate()
     {
         if (Config.instance.gamePaused)
             return;
 
         if(roverHealth == null)
-            return;
+        {
+            GameObject game = GameObject.Find("/Game");
+            if(game != null)
+            {
+                Transform rover = game.transform.Find("Rover");
+                if(rover == null)
+                    return;
+                roverHealth = rover.GetComponent<Health>();
+            }
+        }
 
         stunTimer -= Time.fixedDeltaTime;
         if(stunTimer > 0)

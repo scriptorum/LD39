@@ -23,12 +23,15 @@ public class Pickup : MonoBehaviour
             return;
         available = true;
 
-        if (rover == null || rover.transform == null)
-            rover = transform.Find("/Game/Rover");
-
-        if(rover == null)
+        if (rover == null)
         {
-            return;
+            GameObject game = GameObject.Find("/Game");
+            if (game != null)
+            {
+                rover = game.transform.Find("Rover");
+                if (rover == null)
+                    return;
+            }
         }
 
         Vector3 diff = transform.position - rover.transform.position;
