@@ -12,6 +12,7 @@ public class Config : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("New CONFIG instance!");
         instance = this;
     }
 
@@ -20,6 +21,7 @@ public class Config : MonoBehaviour
 #if DEBUG
         if (Input.GetKey(KeyCode.N))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
 #endif
     }
 }

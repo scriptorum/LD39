@@ -19,18 +19,17 @@ public class Saucer : MonoBehaviour
         shadow = transform.Find("saucer-shadow");
         mounts[0] = transform.Find("mount1");
         mounts[1] = transform.Find("mount2");
-
-    }
-
-    void Start()
-    {
-        rover = transform.Find("/Game/Rover");
     }
 
     void Update()
     {
         if (Config.instance.gamePaused)
             return;
+
+        if(rover == null)
+            rover = transform.Find("/Game/Rover");
+        if(rover == null)
+            return;          
 
         Vector3 diff = rover.position - transform.position;
 		if(diff.magnitude > SIGHT)

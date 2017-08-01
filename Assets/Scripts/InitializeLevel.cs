@@ -1,23 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spewnity;
 
-public class CenterRover : MonoBehaviour
+public class InitializeLevel : MonoBehaviour
 {
     void Awake()
     {
+        Debug.Log("InitializeLevel is awake!");
         Init();
     }
 
     public void Init()
     {
-        Transform rover = transform.Find("/Game/Rover");
+        GameObject game = GameObject.Find("/Game");
+        Transform rover = null;
+        if(game) rover = game.transform.Find("Rover");
+
         if (rover == null)
         {
+            Debug.Log("Can't find rover! Game:" + game);
             Invoke("Init", 0.1f);
             return;
         }
 
+        Debug.Log("Found rover!");
+        // If power or shields == 0, reset either to reasonable setting for this level
         rover.position = Vector3.zero;
         rover.gameObject.SetActive(true);
         Config.instance.gameOver = false;
