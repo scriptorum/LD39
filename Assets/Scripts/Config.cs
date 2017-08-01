@@ -18,7 +18,7 @@ public class Config : MonoBehaviour
     void Update()
     {
 #if DEBUG
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKey(KeyCode.N))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 #endif
     }

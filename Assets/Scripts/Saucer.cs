@@ -19,6 +19,11 @@ public class Saucer : MonoBehaviour
         shadow = transform.Find("saucer-shadow");
         mounts[0] = transform.Find("mount1");
         mounts[1] = transform.Find("mount2");
+
+    }
+
+    void Start()
+    {
         rover = transform.Find("/Game/Rover");
     }
 
@@ -53,6 +58,6 @@ public class Saucer : MonoBehaviour
         GameObject go = (GameObject) Instantiate(laserPrefab, mount.position, transform.rotation);
         Damage damage = go.GetComponent<Damage>();
         damage.type = DamageType.Enemy;
-        damage.damage = 20;
+        damage.damage = 10;
     }
 }

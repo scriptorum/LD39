@@ -85,6 +85,7 @@ public class Messages : MonoBehaviour
 
     public void restart()
     {
-        SceneManager.LoadScene("level1");
+        hide();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
