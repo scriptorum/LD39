@@ -81,10 +81,7 @@ public class PowerStation : MonoBehaviour
         {
             case PickupType.Ore:
                 if (power.amount == power.max)
-                {
-                    Debug.Log("TODO: Respawn ore");
                     return;
-                }
                 power.amount += 1;
                 if (power.amount > power.max)
                     power.amount = power.max;
@@ -93,10 +90,7 @@ public class PowerStation : MonoBehaviour
 
             case PickupType.Shields:
                 if (shields.amount == shields.max)
-                {
-                    Debug.Log("TODO: Respawn shield");
                     return;
-                }
                 shields.amount += 1;
                 if (shields.amount > power.max)
                     shields.amount = power.max;

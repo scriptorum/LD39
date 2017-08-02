@@ -10,7 +10,6 @@ public class InitializeLevel : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("InitializeLevel is awake!");
         Init();
     }
 
@@ -22,12 +21,10 @@ public class InitializeLevel : MonoBehaviour
 
         if (rover == null)
         {
-            Debug.Log("Can't find rover! Game:" + game);
             Invoke("Init", 0.1f);
             return;
         }
 
-        Debug.Log("Found rover!");
         rover.position = Vector3.zero;
         rover.gameObject.SetActive(true);
 

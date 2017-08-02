@@ -12,7 +12,6 @@ public class Config : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("New CONFIG instance!");
         instance = this;
     }
 
