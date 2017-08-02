@@ -8,7 +8,7 @@ public class StatusBar : MonoBehaviour
 	public float max;
 	public SpriteRenderer fillSprite;
 
-	private const float SPEED = 10.0f;
+	private const float SPEED = 5.0f;
 	private float timer = 0f;
 
 	void Awake()

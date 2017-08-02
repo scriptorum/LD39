@@ -12,16 +12,19 @@ public class DrivingControls : MonoBehaviour
     public PickupEvent roverPickup;
 
     private const float TURN_SPEED = 5f;
+    private const int STUN_DAMAGE = 2;
     private float speed = 8f;
     private float curAngleDeg = 0f;
     private Vector2 lastMove;
     private float stunTimer = 0f;
     private PowerStation powerStation;
+    private Health health;
     private Vector3 oldPos;
 
     void Awake()
     {
         powerStation = GetComponent<PowerStation>();
+        health = GetComponent<Health>();
         CameraFollow cf = Camera.main.gameObject.GetComponent<CameraFollow>();
         cf.target = transform;
         oldPos = transform.position;
@@ -88,6 +91,11 @@ public class DrivingControls : MonoBehaviour
             stunTimer = 0.5f;
             stunFx.Play();
             SoundManager.instance.Play("rover-stun");
+            // This is dorky how I've got to sync health and shields
+            // In this case, I don't want the damage fx, so I can't call health.takeDamage()
+            int damage = health.health > STUN_DAMAGE ? STUN_DAMAGE : health.health - 1;
+            health.health -= damage;
+            powerStation.shields.amount = health.health;
         }
     }
 

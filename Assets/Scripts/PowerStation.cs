@@ -9,6 +9,7 @@ public class PowerStation : MonoBehaviour
     public StatusBar shields;
     public ParticleSystem explosionPrefab;
 
+    private Health health;
     private const float fuelRate = 2.0f;
     private const float CHANCE_DROP = 0.1f;
     private bool moving = false;
@@ -17,8 +18,7 @@ public class PowerStation : MonoBehaviour
     {
         power = transform.Find("/Global/Camera/StatusBars/Power").GetComponent<StatusBar>();
         shields = transform.Find("/Global/Camera/StatusBars/Shields").GetComponent<StatusBar>();
-        power.amount = 10;
-        shields.amount = 50;
+        health = GetComponent<Health>();
     }
 
     void Update()
@@ -29,6 +29,7 @@ public class PowerStation : MonoBehaviour
         {
             power.amount = power.max;
             shields.amount = shields.max;
+            GetComponent<Health>().health = Mathf.FloorToInt(shields.max);
         }
 #endif
     }
@@ -85,7 +86,7 @@ public class PowerStation : MonoBehaviour
                 power.amount += 1;
                 if (power.amount > power.max)
                     power.amount = power.max;
-
+                health.health = Mathf.FloorToInt(power.amount);
                 break;
 
             case PickupType.Shields:
@@ -102,6 +103,7 @@ public class PowerStation : MonoBehaviour
         }
     }
 
+    // This is invoked by the Health component, health should be in sync with shields
     public void onTakeDamage(int amount, int currentHealth)
     {
         shields.amount = currentHealth;
@@ -111,12 +113,13 @@ public class PowerStation : MonoBehaviour
         {
             SoundManager.instance.Play("rover-damage");
 
+            // Spit out fuel when hit, sometimes
+            // TODO Sometimes destroy fuel instead of dropping it?
             for (int i = 0; i < amount; i++)
             {
                 if (power.amount <= 0)
                     break;
 
-                // TODO Sometimes destroy fuel instead of dropping it?
                 else if (Random.Range(0.0f, 1.0f) < CHANCE_DROP)
                 {
                     OreTosser.instance.toss(transform.position, PickupType.Ore, 2f);

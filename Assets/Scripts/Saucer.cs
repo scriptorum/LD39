@@ -5,20 +5,25 @@ using UnityEngine;
 public class Saucer : MonoBehaviour
 {
     public GameObject laserPrefab;
-    private Transform shadow;
-    private Transform[] mounts = new Transform[2];
-    private int currentMount = 1;
-    private const float FULL_CHARGE = 0.35f;
+
+    private const float CHARGE_SUBTRACT = 0.70f;
     private const float SIGHT = 10f;
     private const float SPEED = 2.0f;
-    private float chargeTime = 0f;
     private Transform rover;
+    private Transform shadow;
+    private Transform[] mounts = new Transform[2];
+    private ParticleSystem[] fx = new ParticleSystem[2];
+    private int currentMount = 1;
+    private float chargeTime = 0f;
+    private float curMaxCharge = 0.2f;
 
     void Awake()
     {
         shadow = transform.Find("saucer-shadow");
         mounts[0] = transform.Find("mount1");
         mounts[1] = transform.Find("mount2");
+        fx[0] = mounts[0].GetComponent<ParticleSystem>();
+        fx[1] = mounts[1].GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -36,7 +41,7 @@ public class Saucer : MonoBehaviour
                     return;
             }
         }
-        
+
         Vector3 diff = rover.position - transform.position;
 		if(diff.magnitude > SIGHT)
 			return;
@@ -48,19 +53,21 @@ public class Saucer : MonoBehaviour
 
         chargeTime += Time.deltaTime;
 
-        if (chargeTime >= FULL_CHARGE)
+        if (chargeTime >= curMaxCharge)
         {
+            curMaxCharge = CHARGE_SUBTRACT - curMaxCharge;
             chargeTime = 0f;
-            fire(mounts[currentMount]);
+            fire(currentMount);
             currentMount = 1 - currentMount;
         }
 
         shadow.transform.position = transform.position + Vector3.down * 0.2f;
     }
 
-    private void fire(Transform mount)
+    private void fire(int mount)
     {
-        GameObject go = (GameObject) Instantiate(laserPrefab, mount.position, transform.rotation);
+        fx[mount].Play();
+        GameObject go = (GameObject) Instantiate(laserPrefab, mounts[mount].position, transform.rotation);
         Damage damage = go.GetComponent<Damage>();
         damage.type = DamageType.Enemy;
         damage.damage = 10;

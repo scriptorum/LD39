@@ -59,7 +59,7 @@ public class TurretControls : MonoBehaviour
             return;
 
         chargeTime = 0f;
-        GameObject go = (GameObject) Instantiate(laserPrefab, laserSpawn.position, transform.rotation);
+        Instantiate(laserPrefab, laserSpawn.position, transform.rotation);
     }
 
     private void getMousePosition()

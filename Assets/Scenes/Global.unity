@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239e8c6315db4e508dabffdff01ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 100
+  amount: 0
   max: 100
   fillSprite: {fileID: 607955124}
 --- !u!1 &351051532
@@ -8610,7 +8610,7 @@ MonoBehaviour:
     volumeVariation: 0
     pan: 0
     panVariation: 0
-    looping: 0
+    looping: 1
     usePool: 0
     multi: 1
     delay: 0
@@ -22653,6 +22653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4239e8c6315db4e508dabffdff01ef4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 10
+  amount: 0
   max: 100
   fillSprite: {fileID: 830384646}

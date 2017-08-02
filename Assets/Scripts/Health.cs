@@ -14,9 +14,9 @@ public class Health : MonoBehaviour
         if (other.tag == "damage")
         {
             Damage damage = other.gameObject.GetComponent<Damage>();
-            if(gameObject.name == "Rover" && damage.type == DamageType.Player)
+            if (gameObject.name == "Rover" && damage.type == DamageType.Player)
                 return;
-            if(gameObject.name == "Saucer" && damage.type == DamageType.Enemy)
+            if (gameObject.name == "Saucer" && damage.type == DamageType.Enemy)
                 return;
             takeDamage(damage);
         }
@@ -24,7 +24,12 @@ public class Health : MonoBehaviour
 
     public void takeDamage(Damage damage)
     {
-        health -= damage.damage;
+        takeDamage(damage.damage);
+    }
+
+    public void takeDamage(int amount)
+    {
+        health -= amount;
 
         if (health < 0)
         {
@@ -32,10 +37,9 @@ public class Health : MonoBehaviour
             health = 0;
         }
 
-        onDamage.Invoke(damage.damage, health);
+        onDamage.Invoke(amount, health);
     }
 }
 
 [System.Serializable]
-public class DamageEvent : UnityEvent<int, int>
-{ }
+public class DamageEvent : UnityEvent<int, int> { }

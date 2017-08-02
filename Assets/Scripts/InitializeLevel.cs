@@ -29,10 +29,13 @@ public class InitializeLevel : MonoBehaviour
         rover.gameObject.SetActive(true);
 
         PowerStation ps = rover.GetComponent<PowerStation>();
-        if(ps.power.amount <= 0)
+        if(ps.power.amount <= 0 || ps.shields.amount <= 0)
+        {
             ps.power.amount = restartPower;
-        if(ps.shields.amount <= 0)
             ps.shields.amount = restartShields;
+            Health health = rover.GetComponent<Health>();
+            health.health = Mathf.FloorToInt(ps.shields.amount);
+        }
 
         Config.instance.gameOver = false;
         Camera.main.transform.position = new Vector3(0, 0, -10);
