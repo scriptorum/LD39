@@ -8569,9 +8569,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPoolSize: 32
   minPoolSize: 1
-  output: {fileID: 0}
+  defaultAudioMixerGroup: {fileID: 0}
   sounds:
   - name: brute-damage
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 651cd710eea084fbe8f7b06a4b4a2276, type: 3}
     - {fileID: 8300000, guid: d48af10fd62ad4326be985dc0149f291, type: 3}
@@ -8588,12 +8589,13 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: brute-death
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: f6def257027d7480cb4865929a4e0ec8, type: 3}
     - {fileID: 8300000, guid: 0f6598a4dcd2e4505841c67c4dc3d79e, type: 3}
     pitch: 1
     pitchVariation: 0.1
-    volume: 0.9
+    volume: 0.7
     volumeVariation: 0.1
     pan: 0
     panVariation: 0
@@ -8603,6 +8605,7 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: song-play
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 3021c4abe2af643d6a63d40fa488170c, type: 3}
     pitch: 1
@@ -8616,44 +8619,14 @@ MonoBehaviour:
     multi: 1
     delay: 0
     source: {fileID: 0}
-  - name: song-intro
-    clips:
-    - {fileID: 8300000, guid: a1140117f232f4a91a37cf4a3998cea4, type: 3}
-    pitch: 1
-    pitchVariation: 0
-    volume: 0.7
-    volumeVariation: 0
-    pan: 0
-    panVariation: 0
-    looping: 0
-    usePool: 0
-    multi: 1
-    delay: 0
-    source: {fileID: 0}
   - name: laser-fire
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: c53305a1513df4d5b9c239e36de2f8a3, type: 3}
     - {fileID: 8300000, guid: bf499cfe239194c85b61b837bd363760, type: 3}
     - {fileID: 8300000, guid: 473073273df074067adcb995ec545371, type: 3}
     - {fileID: 8300000, guid: add969db569054314844119cb37c6b69, type: 3}
-    pitch: 0.5
-    pitchVariation: 0.1
-    volume: 0.9
-    volumeVariation: 0.1
-    pan: 0
-    panVariation: 0
-    looping: 0
-    usePool: 1
-    multi: 0
-    delay: 0
-    source: {fileID: 0}
-  - name: laser-fire2
-    clips:
-    - {fileID: 8300000, guid: c53305a1513df4d5b9c239e36de2f8a3, type: 3}
-    - {fileID: 8300000, guid: bf499cfe239194c85b61b837bd363760, type: 3}
-    - {fileID: 8300000, guid: 473073273df074067adcb995ec545371, type: 3}
-    - {fileID: 8300000, guid: add969db569054314844119cb37c6b69, type: 3}
-    pitch: 2
+    pitch: 1
     pitchVariation: 0.1
     volume: 0.5
     volumeVariation: 0.1
@@ -8664,28 +8637,16 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
-  - name: brute-attack
+  - name: laser-fire2
+    livePreview: 0
     clips:
-    - {fileID: 8300000, guid: e44f0984c543d47b6a1eaba18dba9326, type: 3}
-    - {fileID: 8300000, guid: 7e626a9726b0d475ab63311257e9334c, type: 3}
-    - {fileID: 8300000, guid: e37ab5019a3304822bd04f701439fad3, type: 3}
-    pitch: 1
-    pitchVariation: 0.1
-    volume: 0.9
-    volumeVariation: 0.1
-    pan: 0
-    panVariation: 0
-    looping: 0
-    usePool: 1
-    multi: 2
-    delay: 0
-    source: {fileID: 0}
-  - name: brute-sighting
-    clips:
-    - {fileID: 0}
-    pitch: 1
-    pitchVariation: 0.1
-    volume: 0.9
+    - {fileID: 8300000, guid: c53305a1513df4d5b9c239e36de2f8a3, type: 3}
+    - {fileID: 8300000, guid: bf499cfe239194c85b61b837bd363760, type: 3}
+    - {fileID: 8300000, guid: 473073273df074067adcb995ec545371, type: 3}
+    - {fileID: 8300000, guid: add969db569054314844119cb37c6b69, type: 3}
+    pitch: 2
+    pitchVariation: 0.2
+    volume: 0.5
     volumeVariation: 0.1
     pan: 0
     panVariation: 0
@@ -8694,7 +8655,25 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+  - name: brute-attack
+    livePreview: 0
+    clips:
+    - {fileID: 8300000, guid: e44f0984c543d47b6a1eaba18dba9326, type: 3}
+    - {fileID: 8300000, guid: 7e626a9726b0d475ab63311257e9334c, type: 3}
+    - {fileID: 8300000, guid: e37ab5019a3304822bd04f701439fad3, type: 3}
+    pitch: 1
+    pitchVariation: 0.1
+    volume: 0.7
+    volumeVariation: 0.1
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 2
+    delay: 0
+    source: {fileID: 0}
   - name: motor-empty
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: ecf7442f7b37a4dca92ea226671dac0b, type: 3}
     pitch: 1
@@ -8708,27 +8687,14 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
-  - name: motor-on
-    clips:
-    - {fileID: 8300000, guid: 5ccf0fca7a64345568b07609ac3a12b9, type: 3}
-    pitch: 1
-    pitchVariation: 0
-    volume: 0.2
-    volumeVariation: 0
-    pan: 0
-    panVariation: 0
-    looping: 0
-    usePool: 1
-    multi: 1
-    delay: 0
-    source: {fileID: 0}
   - name: ore-drop
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: fe3bb3b356d4c420f8236c50d98070e6, type: 3}
     - {fileID: 8300000, guid: 72b8ab75ecdb34065bc4aadffa16089d, type: 3}
     pitch: 1
     pitchVariation: 0.1
-    volume: 0.9
+    volume: 0.8
     volumeVariation: 0.1
     pan: 0
     panVariation: 0
@@ -8738,6 +8704,7 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: ore-pickup
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: a2239f7a5fcf549e493e103d15206b39, type: 3}
     - {fileID: 8300000, guid: 8064d0700de2f4f1c9361986516c4e14, type: 3}
@@ -8745,7 +8712,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: da23c53b97a2149309c922ea0008f1b4, type: 3}
     pitch: 1
     pitchVariation: 0.1
-    volume: 0.9
+    volume: 0.8
     volumeVariation: 0.1
     pan: 0
     panVariation: 0
@@ -8755,6 +8722,7 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: rock-death
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 4e678e9fb39ee4e77aa820d0e7306738, type: 3}
     pitch: 1
@@ -8769,11 +8737,12 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: rock-damage
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 36f63af6243a24742b9e7f1db0a4abf8, type: 3}
     pitch: 1
     pitchVariation: 0.1
-    volume: 0.9
+    volume: 0.7
     volumeVariation: 0.1
     pan: 0
     panVariation: 0
@@ -8783,6 +8752,7 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: rover-damage
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: fd48e8ff6254b46a6986440fa6c0212f, type: 3}
     pitch: 1
@@ -8797,11 +8767,12 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: rover-death
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 129e824cae56644d79115c65e359a4de, type: 3}
     pitch: 1
     pitchVariation: 0
-    volume: 1.1
+    volume: 1
     volumeVariation: 0
     pan: 0
     panVariation: 0
@@ -8811,11 +8782,12 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: rover-stun
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 4c64ff342e61249dfb5be3c8808701e0, type: 3}
     pitch: 1
     pitchVariation: 0.1
-    volume: 0.9
+    volume: 0.65
     volumeVariation: 0.1
     pan: 0
     panVariation: 0
@@ -8825,11 +8797,12 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: beep
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 4567f93845a8c4a89a1bdd55c8a5790f, type: 3}
     pitch: 1
     pitchVariation: 0
-    volume: 0.8
+    volume: 0.2
     volumeVariation: 0
     pan: 0
     panVariation: 0
@@ -8839,11 +8812,12 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: beep3
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: b110110a596454d4a96adcfbf41ce601, type: 3}
     pitch: 1
     pitchVariation: 0
-    volume: 0.8
+    volume: 0.4
     volumeVariation: 0
     pan: 0
     panVariation: 0
@@ -8853,6 +8827,7 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: saucer-damage
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 3c7947826e84b41f8b4b06cc0dc07f7c, type: 3}
     pitch: 1
@@ -8867,10 +8842,26 @@ MonoBehaviour:
     delay: 0
     source: {fileID: 0}
   - name: saucer-death
+    livePreview: 0
     clips:
     - {fileID: 8300000, guid: 3cebcd09ba4824c21b1972caf2145b98, type: 3}
     pitch: 1
     pitchVariation: 0.3
+    volume: 0.9
+    volumeVariation: 0
+    pan: 0
+    panVariation: 0
+    looping: 0
+    usePool: 1
+    multi: 0
+    delay: 0
+    source: {fileID: 0}
+  - name: checkpoint
+    livePreview: 0
+    clips:
+    - {fileID: 8300000, guid: 2193fa3efedec4193bf17c3e6c8bb2ea, type: 3}
+    pitch: 1
+    pitchVariation: 0
     volume: 0.8
     volumeVariation: 0
     pan: 0
@@ -8880,7 +8871,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
-  dontDestroy: 0
+  dontDestroyOnLoad: 0
   soundsInitialized: 1
 --- !u!4 &1825471480
 Transform:
@@ -22625,6 +22616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 0.1
   duration: 0.25
+  fadeStrength: 1
 --- !u!1 &2107534370
 GameObject:
   m_ObjectHideFlags: 0
