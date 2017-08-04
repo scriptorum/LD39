@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4288467524852000}
   - component: {fileID: 61845598741726184}
-  - component: {fileID: 114420310444721760}
+  - component: {fileID: 114058520056344708}
   m_Layer: 0
   m_Name: Area-Loader
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1552563803798158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.67, y: -2.6, z: 0}
+  m_LocalPosition: {x: 20.1, y: -2.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,7 +66,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 8}
   m_EdgeRadius: 0
---- !u!114 &114420310444721760
+--- !u!114 &114058520056344708
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,7 +74,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1552563803798158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007fe0a3b319f4f639c75456191c0e79, type: 3}
+  m_Script: {fileID: 11500000, guid: 408d4cc0f74784d6d9a1815cc7cb9c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: level2
+  sceneInfo:
+  - name: 
+    mode: 0
+    marker: 
+    trigger: 2
+    tag: Player

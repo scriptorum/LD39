@@ -449,11 +449,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 26
       objectReference: {fileID: 0}
-    - target: {fileID: 114420310444721760, guid: 7bbf7bcaa20bd44b78ac8c129692fca2,
-        type: 2}
-      propertyPath: scene
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bbf7bcaa20bd44b78ac8c129692fca2, type: 2}
   m_IsPrefabParent: 0
@@ -1457,6 +1452,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1940192f1730643cc9840233abdbc598, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1525702282
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 421f14a77cf30415ba4abf752123149d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1550451937
 Prefab:
   m_ObjectHideFlags: 0
@@ -1508,90 +1545,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4714062705964020, guid: 70719812b6ae04a5fadc771a8eb76d14,
     type: 2}
   m_PrefabInternal: {fileID: 1550451937}
---- !u!1 &1601221704
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1487727100896576, guid: 421f14a77cf30415ba4abf752123149d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1601221706}
-  - component: {fileID: 1601221705}
-  - component: {fileID: 1601221707}
-  - component: {fileID: 1601221708}
-  m_Layer: 0
-  m_Name: Init
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1601221705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114572067802064832, guid: 421f14a77cf30415ba4abf752123149d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601221704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf1fa008bc1042df9b280e2cb527818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggered: 0
-  message:
-  - <Incoming Message>
-  - Oof! You're a in real pickle there. Look at your fuel gauge below! Not enough
-    to get back to your ship. At least you got shields.
-  - I guess I'll help since I'm on coffee break. See those rocks? Shoot them with
-    your mining laser. Your rover can process them as fuel.
-  - Move with arrows or AWSD. Your rover is equipped with a mouse and a left button
-    to aim and fire. Or maybe you have a gamepad and the developer got the button
-    assignments correct? Not likely!
---- !u!4 &1601221706
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4926395065762796, guid: 421f14a77cf30415ba4abf752123149d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601221704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1601221707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114127881307871208, guid: 421f14a77cf30415ba4abf752123149d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601221704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1968e8ac10c4d0286e990f3b5c5784, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  additive: 1
-  scene: Global
-  additiveMarker: /Global
---- !u!114 &1601221708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114290778453154936, guid: 421f14a77cf30415ba4abf752123149d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601221704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf7cb73ecc8a4289b20831f1916c5c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restartPower: 10
-  restartShields: 50
 --- !u!1001 &1603072791
 Prefab:
   m_ObjectHideFlags: 0

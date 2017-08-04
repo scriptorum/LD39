@@ -8569,7 +8569,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPoolSize: 32
   minPoolSize: 1
-  defaultAudioMixerGroup: {fileID: 0}
+  defaultAudioMixerGroup: {fileID: 243814656936474240, guid: 7899ce6eeeb3747faa37a0cc483b032f,
+    type: 2}
   sounds:
   - name: brute-damage
     livePreview: 0
@@ -8588,6 +8589,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: brute-death
     livePreview: 0
     clips:
@@ -8604,6 +8606,7 @@ MonoBehaviour:
     multi: 1
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: song-play
     livePreview: 0
     clips:
@@ -8619,6 +8622,7 @@ MonoBehaviour:
     multi: 1
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 243445491428631514, guid: 7899ce6eeeb3747faa37a0cc483b032f, type: 2}
   - name: laser-fire
     livePreview: 0
     clips:
@@ -8637,6 +8641,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: laser-fire2
     livePreview: 0
     clips:
@@ -8655,6 +8660,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: brute-attack
     livePreview: 0
     clips:
@@ -8672,6 +8678,7 @@ MonoBehaviour:
     multi: 2
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: motor-empty
     livePreview: 0
     clips:
@@ -8687,6 +8694,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: ore-drop
     livePreview: 0
     clips:
@@ -8703,6 +8711,7 @@ MonoBehaviour:
     multi: 2
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: ore-pickup
     livePreview: 0
     clips:
@@ -8721,6 +8730,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: rock-death
     livePreview: 0
     clips:
@@ -8736,6 +8746,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: rock-damage
     livePreview: 0
     clips:
@@ -8751,6 +8762,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: rover-damage
     livePreview: 0
     clips:
@@ -8766,6 +8778,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: rover-death
     livePreview: 0
     clips:
@@ -8781,6 +8794,7 @@ MonoBehaviour:
     multi: 1
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: rover-stun
     livePreview: 0
     clips:
@@ -8796,6 +8810,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: beep
     livePreview: 0
     clips:
@@ -8811,6 +8826,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: beep3
     livePreview: 0
     clips:
@@ -8826,6 +8842,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: saucer-damage
     livePreview: 0
     clips:
@@ -8841,6 +8858,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: saucer-death
     livePreview: 0
     clips:
@@ -8856,6 +8874,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   - name: checkpoint
     livePreview: 0
     clips:
@@ -8871,6 +8890,7 @@ MonoBehaviour:
     multi: 0
     delay: 0
     source: {fileID: 0}
+    group: {fileID: 0}
   dontDestroyOnLoad: 0
   soundsInitialized: 1
 --- !u!4 &1825471480
