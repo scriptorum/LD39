@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class AutoPlay : MonoBehaviour
 {
-    private float elapsed = 0f;
-    private float x = -10f;
+    // private float elapsed = 0f;
+    // private float x = -10f;
 
     void Start()
     {

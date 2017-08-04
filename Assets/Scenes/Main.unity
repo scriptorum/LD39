@@ -136,11 +136,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneInfo:
-  - name: level1
+  - trigger: 0
+    name: level1
     mode: 0
     marker: 
-    trigger: 0
     tag: 
+    soundEffect: 
+    data: 
+    keyCodes: 
+    preTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!4 &25938455
 Transform:
   m_ObjectHideFlags: 0
@@ -148,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 25938453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.754145, y: 0.42967346, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
