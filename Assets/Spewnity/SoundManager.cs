@@ -18,7 +18,7 @@ namespace Spewnity
 
         public int maxPoolSize = 32;
         public int minPoolSize = 1;
-        [Tooltip("The default AudioMixerGroup for pool AudioSources, if not specified per sound")]
+        [Tooltip("If supplied and not specified per-sound, the default AudioMixerGroup for pool AudioSources")]
         public AudioMixerGroup defaultAudioMixerGroup;
         public Sound[] sounds;
         [Tooltip("If true, maintains one instance of SoundManager that survives scene changes.")]
@@ -53,21 +53,6 @@ namespace Spewnity
             }
 #endif
 
-            // Update all pool source in case mixer changed
-            List<List<AudioSource>> pools = new List<List<AudioSource>>
-            {
-                busyPool,
-                openPool
-            };
-            foreach(List<AudioSource> pool in pools)
-            {
-                if (pool == null) continue;
-                foreach(AudioSource source in pool)
-                {
-                    source.outputAudioMixerGroup = defaultAudioMixerGroup;
-                }
-            }
-
 			bool previewing = false;
             foreach(Sound snd in sounds)
             {
@@ -78,7 +63,7 @@ namespace Spewnity
 						source = gameObject.AddComponent<AudioSource>();
                     snd.livePreview = false;
                     source.playOnAwake = false;
-                    source.outputAudioMixerGroup = defaultAudioMixerGroup;
+                    source.outputAudioMixerGroup = snd.group == null ? defaultAudioMixerGroup : snd.group;
                     source.clip = snd.clips.Rnd();
                     source.pitch = snd.GetPitch();
                     source.volume = snd.GetVolume();
@@ -150,7 +135,6 @@ namespace Spewnity
 
             AudioSource source = gameObject.AddComponent<AudioSource>();
             source.playOnAwake = false;
-            source.outputAudioMixerGroup = defaultAudioMixerGroup;
             openPool.Add(source);
 
             return true;
@@ -231,6 +215,7 @@ namespace Spewnity
             sound.source.volume = volume;
             sound.source.panStereo = pan;
             sound.source.loop = loop;
+            sound.source.outputAudioMixerGroup = sound.group == null ? defaultAudioMixerGroup : sound.group;
 
             if (sound.delay > 0)
             {
@@ -356,9 +341,10 @@ namespace Spewnity
 
         [Tooltip("If usePool is false and this is supplied, will use this custom Audio Source.")]
         public AudioSource source;
+        [Tooltip("If supplied, the Audio Source will use this Audio Mixer Group.")]
+        public AudioMixerGroup group;
 
         // Returns valid pitch/volume/pan within the range of variation
-
         public float GetPitch()
         {
             return pitch + Random.Range(-pitchVariation, pitchVariation);
