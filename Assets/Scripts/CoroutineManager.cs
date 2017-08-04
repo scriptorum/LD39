@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+    This provides a simple way to offload coroutine ownership to another GameObject.
+    Simply attach this component to a new GameObject, and run coroutines with
+    CoroutineManager.instance.Run(YourCoroutineFunc());
+ */
 public class CoroutineManager : MonoBehaviour
 {
     public static CoroutineManager instance;
@@ -11,8 +16,18 @@ public class CoroutineManager : MonoBehaviour
         instance = this;
     }
 
-    public void Run(IEnumerator routine)
+    public Coroutine Run(IEnumerator routine)
     {
-        StartCoroutine(routine);
+        return StartCoroutine(routine);
+    }
+
+    public void Stop(IEnumerator routine)
+    {
+        StopCoroutine(routine);
+    }
+
+    public void StopAll()
+    {
+        StopAllCoroutines();
     }
 }
