@@ -13,6 +13,8 @@ public class MessageTrigger : MonoBehaviour
     void Awake()
     {
         Collider2D collider = GetComponent<Collider2D>();
+
+        // If no collider, trigger message immediately
         if(collider == null)
             Invoke("showNextMessage", 0.1f);
     }

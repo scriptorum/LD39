@@ -12354,10 +12354,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1904034459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c078fa7cd076f4426902ff5089870458, type: 3}
+  m_Script: {fileID: 11500000, guid: 2641ba4e392ae4a13904356de60444ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 138759567}
+  shakeStrength: 0.1
+  shakeDuration: 0.25
+  shakeFadeOut: 1
+  previewShake: 0
+  useCameraMain: 0
 --- !u!1 &1908105230
 GameObject:
   m_ObjectHideFlags: 0
@@ -22548,7 +22552,6 @@ GameObject:
   - component: {fileID: 2096836830}
   - component: {fileID: 2096836831}
   - component: {fileID: 2096836832}
-  - component: {fileID: 2096836833}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -22623,20 +22626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03024172e40a44024a2666b0dd7f23ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2096836833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2096836827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8769c12bb3343718b41489a76737b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strength: 0.1
-  duration: 0.25
-  fadeStrength: 1
 --- !u!1 &2107534370
 GameObject:
   m_ObjectHideFlags: 0

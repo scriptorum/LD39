@@ -25,8 +25,7 @@ public class DrivingControls : MonoBehaviour
     {
         powerStation = GetComponent<PowerStation>();
         health = GetComponent<Health>();
-        CameraFollow cf = Camera.main.gameObject.GetComponent<CameraFollow>();
-        cf.target = transform;
+        CameraManager.instance.SetFollowTarget(transform);
         oldPos = transform.position;
     }
 
@@ -96,7 +95,7 @@ public class DrivingControls : MonoBehaviour
             int damage = health.health > STUN_DAMAGE ? STUN_DAMAGE : health.health - 1;
             health.health -= damage;
             powerStation.shields.amount = health.health;
-            CameraShake.instance.Run(0.03f, 0.1f);
+            CameraManager.instance.Shake(0.045f, 0.18f);
         }
     }
 
