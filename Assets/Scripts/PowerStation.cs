@@ -111,7 +111,7 @@ public class PowerStation : MonoBehaviour
             blowUp();
         else
         {
-            CameraManager.instance.Shake(0.1f, 0.25f);
+            CameraManager.instance.Shake(0.25f, 0.5f);
             SoundManager.instance.Play("rover-damage");
 
             // Spit out fuel when hit, sometimes
@@ -132,7 +132,7 @@ public class PowerStation : MonoBehaviour
 
     private void blowUp()
     {
-        CameraManager.instance.Shake(0.5f, 1f);
+        CameraManager.instance.Shake(0.75f, 1.5f);
         SoundManager.instance.Play("rover-death");
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Config.instance.gameOver = true;

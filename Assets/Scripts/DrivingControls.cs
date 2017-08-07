@@ -25,8 +25,12 @@ public class DrivingControls : MonoBehaviour
     {
         powerStation = GetComponent<PowerStation>();
         health = GetComponent<Health>();
-        CameraManager.instance.SetFollowTarget(transform);
         oldPos = transform.position;
+    }
+
+    void Start()
+    {
+        CameraManager.instance.SetFollowTarget(transform);
     }
 
     void FixedUpdate()

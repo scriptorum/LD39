@@ -12362,6 +12362,7 @@ MonoBehaviour:
   shakeFadeOut: 1
   previewShake: 0
   useCameraMain: 0
+  followLag: 0.2
 --- !u!1 &1908105230
 GameObject:
   m_ObjectHideFlags: 0
