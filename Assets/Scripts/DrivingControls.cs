@@ -30,7 +30,17 @@ public class DrivingControls : MonoBehaviour
 
     void Start()
     {
-        CameraManager.instance.SetFollowTarget(transform);
+        CameraManager.instance.FollowTarget(transform);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            CameraManager.instance.CutTo(Vector2.zero);
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            CameraManager.instance.DollyTo(Vector2.zero, 1.0f);
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            CameraManager.instance.FollowTarget(transform, 1.0f);
     }
 
     void FixedUpdate()

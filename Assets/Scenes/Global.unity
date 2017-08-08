@@ -12357,12 +12357,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2641ba4e392ae4a13904356de60444ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeStrength: 0.1
-  shakeDuration: 0.25
+  defShakeStrength: 0.1
+  defShakeDuration: 0.25
+  defCameraLag: 1
   shakeFadeOut: 1
   previewShake: 0
   useCameraMain: 0
-  followLag: 0.2
 --- !u!1 &1908105230
 GameObject:
   m_ObjectHideFlags: 0
