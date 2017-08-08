@@ -38,9 +38,9 @@ public class DrivingControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
             CameraManager.instance.CutTo(Vector2.zero);
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            CameraManager.instance.DollyTo(Vector2.zero, 1.0f);
+            CameraManager.instance.DollyTo(Vector2.zero);
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            CameraManager.instance.FollowTarget(transform, 1.0f);
+            CameraManager.instance.FollowTarget(transform);
     }
 
     void FixedUpdate()
