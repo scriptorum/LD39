@@ -41,6 +41,12 @@ public class DrivingControls : MonoBehaviour
             CameraManager.instance.DollyTo(Vector2.zero);
         if (Input.GetKeyDown(KeyCode.Alpha3))
             CameraManager.instance.FollowTarget(transform);
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            CameraManager.instance.ZoomTo(2.0f);
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+            CameraManager.instance.ZoomTo(0.5f);
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+            CameraManager.instance.ResetZoom();
     }
 
     void FixedUpdate()

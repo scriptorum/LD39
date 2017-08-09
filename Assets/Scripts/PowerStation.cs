@@ -16,8 +16,8 @@ public class PowerStation : MonoBehaviour
 
     void Awake()
     {
-        power = transform.Find("/Global/Camera/StatusBars/Power").GetComponent<StatusBar>();
-        shields = transform.Find("/Global/Camera/StatusBars/Shields").GetComponent<StatusBar>();
+        power = GameObject.FindGameObjectWithTag("power-bar").GetComponent<StatusBar>();
+        shields = GameObject.FindGameObjectWithTag("shields-bar").GetComponent<StatusBar>();
         health = GetComponent<Health>();
     }
 
