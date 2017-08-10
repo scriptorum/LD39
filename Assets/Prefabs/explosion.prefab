@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4798589945629494}
   - component: {fileID: 198712535656417812}
-  - component: {fileID: 199724064916760328}
   - component: {fileID: 114114365982153406}
+  - component: {fileID: 199724064916760328}
+  - component: {fileID: 114781600314775928}
   m_Layer: 0
   m_Name: explosion
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009471428932574}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 2.340839, y: -0.7986395, z: -5}
   m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000005}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,6 +54,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c896fd0ea9c45c5975313d87bffc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyWhenFinished: 0
+  includeChildren: 0
+  systemStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114781600314775928}
+        m_MethodName: ResetAllCounts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: system started
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114781600314775928}
+        m_MethodName: Log
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: System Started
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  particleBorn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114781600314775928}
+        m_MethodName: Count
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: birth
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Spewnity.ParticleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  particleDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114781600314775928}
+        m_MethodName: Count
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: death
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Spewnity.ParticleEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  systemFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114781600314775928}
+        m_MethodName: LogAllCounts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: system finished
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114781600314775928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009471428932574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2688f67d34542c5b8b524274f08d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logCountsNow: 0
 --- !u!198 &198712535656417812
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -112,7 +202,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1164354173
+  randomSeed: -914556287
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -508,7 +598,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 1
-    maxNumParticles: 1000
+    maxNumParticles: 100
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -2383,8 +2473,8 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 3
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
@@ -2523,7 +2613,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 1
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -2538,9 +2628,9 @@ ParticleSystem:
     collisionShape3: {fileID: 0}
     collisionShape4: {fileID: 0}
     collisionShape5: {fileID: 0}
-    inside: 1
+    inside: 0
     outside: 0
-    enter: 0
+    enter: 2
     exit: 0
     radiusScale: 1
   SubModule:
@@ -2548,7 +2638,7 @@ ParticleSystem:
     enabled: 0
     subEmitters:
     - emitter: {fileID: 0}
-      type: 0
+      type: 2
       properties: 0
   LightsModule:
     enabled: 0
